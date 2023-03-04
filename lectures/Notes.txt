@@ -1,0 +1,14 @@
+Notes from GDW 2021
+
+
+
+Todo before next GDW
+
+
+(*) Redo/improve CLI intro exercises!  
+
+(*) Don’t forget props and print outs and scratch paper!
+
+(*) Switch out trimmomatic in download exercise!
+
+(*) 
