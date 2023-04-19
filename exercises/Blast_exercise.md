@@ -78,7 +78,7 @@ For this first example, let's download an example DNA sequence:
 Wild camel (*Camelus ferus*) ferritin light chain protein [XM_010996356.2](https://www.ncbi.nlm.nih.gov/nuccore/XM_010996356.2).
 
 Select -> Send To -> File -> Format: fasta  
-This should be saved in the `Downloads` (`/Users/gdw/Downloads`) folder as "sequence.fasta"  
+This should be saved in the `Downloads` (`/Users/gdw2023/Downloads`) folder as "sequence.fasta"  
 Now let's BLAST!!!
 ```bash
 # First, let's make sure we are starting from the Desktop
@@ -166,7 +166,7 @@ From this [TSA](https://www.ncbi.nlm.nih.gov/genbank/tsa/) link (I recommend to 
 - Click and download fasta link (GECA01.1.fsa\_nt.gz)
 - Move the downloaded file into your current directory
 ```bash
-mv /Users/gdw/Downloads/GECA01.1.fsa_nt.gz .
+mv /Users/gdw2023/Downloads/GECA01.1.fsa_nt.gz .
 ```
 
 Alternatively, you can download directly from the command line using the command below:
