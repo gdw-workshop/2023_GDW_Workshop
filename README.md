@@ -19,8 +19,6 @@ We will post as much material as possible as soon as possible. Our intent is to 
 #### Pre-workshop command line clinic (10:00 - 16:00)
 Smith Alumni Center 
 
-<div align="center">
-
 Time | Activity
 --- | ---
 <img width=150/> | <img width=600/>
