@@ -14,7 +14,7 @@ _Schedule will be updated so check back often!_
 
 We will post as much material as possible as soon as possible. Our intent is to leave this material online indefinitely.
 
-### Sunday June 4 1, 2023. Pre-workshop clinic and Opening Reception 
+### Sunday June 4, 2023. Pre-workshop clinic and Opening Reception 
 
 #### Pre-workshop command line clinic (10:00 - 16:00)
 Smith Alumni Center 
