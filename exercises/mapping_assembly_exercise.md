@@ -10,9 +10,9 @@ GDW 2021
 
 We will map reads in the SRA dataset that we downloaded yesterday to the boa constrictor mtDNA sequence that we also downloaded yesterday.  
 
-Read mapping tools map reads very quickly using pre-built indexes of the reference sequence(s) to which reads will be mapped.  We'll use the [Bowtie2](http://www.nature.com/nmeth/journal/v9/n4/full/nmeth.1923.html) mapper. Bowtie2 has a nice [manual](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml) that explains how to use this software. 
+Read mapping tools map reads very quickly because they use pre-built indexes of the reference sequence(s). We'll use the [Bowtie2](http://www.nature.com/nmeth/journal/v9/n4/full/nmeth.1923.html) mapper. Bowtie2 has a nice [manual](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml) that explains how to use this software. 
 
-Note that there are a variety of other good read mapping tools, such as [HiSat](https://ccb.jhu.edu/software/hisat2/index.shtml), [gmap/gsnap](http://research-pub.gene.com/gmap/), and [STAR](https://github.com/alexdobin/STAR).
+There are a variety of other good read mapping tools, such as [BWA](https://github.com/lh3/bwa) and [minimap2](https://github.com/lh3/minimap2), which works well for long read data or long sequences.
 
 The first step will be to create an index of our reference sequence (the boa constrictor mitochondrial genome).
 
@@ -47,29 +47,35 @@ Note that this index building went very fast for a small genome like the boa mtD
 
 ### Mapping reads in the SRA dataset to the boa constrictor mitochondrial genome 
 
-Now that we've created the index, we can map reads to the boa mtDNA.  We'll map our Trimmomatic-trimmed paired reads to this sequence, as follows:
+Now that we've created the index, we can map reads to the boa mtDNA.  We'll map our cutadapt-trimmed paired reads to this sequence, as follows:
 
 ```
 bowtie2 -x boa_mtDNA_bt_index \
-   -q -1 SRR1984309_1_trimmed.fastq  -2 SRR1984309_2_trimmed.fastq \
-   --no-unal --threads 4 -S SRR1984309_mapped_to_boa_mtDNA.sam
+   -1 SRR1984309_1_trimmed.fastq \
+   -2 SRR1984309_2_trimmed.fastq \
+   --no-unal \
+   --threads 8 \
+   -S SRR1984309_mapped_to_boa_mtDNA.sam
 ```
 
-Let's deconstruct this command line (note: the comments will screw up this command: don't copy and paste from this box): 
-```
- bowtie2
-   -x boa_mtDNA_bt_index         # -x: name of index you created with bowtie2-build
-   -q                # -q: the reads are in FASTQ format
-   -1 SRR1984309_1_trimmed.fastq      # name of the paired-read FASTQ file 1
-   -2 SRR1984309_2_trimmed.fastq      # name of the paired-read FASTQ file 2
-   --no-unal            # don't output unmapped reads to the SAM output file (will make it _much_ smaller
-   --threads 4            # since our computers have multiple processers, run on 4 processors to go faster
-   -S SRR1984309_mapped_to_boa_mtDNA.sam   # name of output file in SAM format
-```
+Let's deconstruct this command line:
 
-- Some questions to consider:
-  - What percentage of reads mapped to the boa mitochondrial genome?
-  - Does this make biological sense?
+| Part | Purpose |
+| ---- | ------- |
+| bowtie2 | name of command |
+| -x boa_mtDNA_bt_index | -x: name of index you created with bowtie2-build |
+| -1 SRR1984309_1_trimmed.fastq | name of the paired-read FASTQ file 1 |
+| -2 SRR1984309_2_trimmed.fastq | name of the paired-read FASTQ file 2 |
+| --no-unal | don't output unmapped reads to the SAM output file (will make it _much_ smaller |
+| --threads 8 | since the server has multiple processers, run on 8 processors to go faster |
+| -S SRR1984309_mapped_to_boa_mtDNA.sam   | name of output file in [SAM format](https://en.wikipedia.org/wiki/SAM_(file_format)) |
+
+
+---
+:question: **Questions:**
+- What percentage of reads mapped to the boa mitochondrial genome?
+- Does this make sense biologically?  Remember that this is total RNA from snake liver tissue.  Explain.
+---
 
 
 The output file SRR1984309_mapped_to_boa_mtDNA.sam is in [SAM format](https://en.wikipedia.org/wiki/SAM_(file_format)).  This is a plain text format, so you can look at the first 20 lines by running this command:
@@ -81,6 +87,12 @@ head -20 SRR1984309_mapped_to_boa_mtDNA.sam
 
 You can see that there are several header lines beginning with `@`, and then one line for each mapped read.  See [here](http://genome.sph.umich.edu/wiki/SAM) or [here](https://samtools.github.io/hts-specs/SAMv1.pdf) for more information about interpreting SAM files.
 
+---
+:question: **Answer the following questions about the first mapped read:**
+- What position in the mtDNA sequence did the first mapped read map to?
+- What is the mapping quality for this read's mapping?
+- What does this mapping quality score indicate?
+---
 
 
 ### Visualizing aligned (mapped) reads in Geneious
@@ -99,14 +111,20 @@ Once you have the boa constrictor mitochondrial genome in a folder in Geneious, 
   - Click View->Expand Document View to enlarge the alignment
   - Try playing with the visualization settings in the panels on the right of the alignment
 
-- Some questions to consider when viewing the alignment:
-  - Is the coverage even across the mitochondrial genome?  What is the average coverage?
-  - This is essentially RNA-Seq data.  Are the mitochondrial genes expressed evenly?  How does this relate to coverage?
-  - Are there any variants between this snake's mitochondrial genome sequence and the boa constrictor reference sequence?  Is that expected?
-    - Can you distinguish true variants from sequencing errors?
-  - Is it possible that reads that derive from other parts of the boa constrictor genome are mapping here?  How would you prevent that?
-  - Can you identify mapped read pairs?  
-
+---
+:question: **Questions to consider when viewing the alignment:**
+- What is the average coverage depth across the mitochondrial genome?
+- Is the coverage even across the mitochondrial genome?
+- Would you expect coverage to be even across the genome?  (Recall that this data is derived from total RNA from liver tissue).
+- Are the mitochondrial genes expressed evenly?
+- Are there any variants between this snake's mitochondrial genome sequence and the boa constrictor reference sequence?
+- Is it expected that there are variants between these reads and this reference sequence?  Explain your answer.
+- Can you distinguish true variants from sequencing errors?
+- In general, how can you distinguish true variants from sequencing errors?
+- Is it possible that reads that derive from the boa constrictor nuclear genome are mapping to this sequence?
+- How would you prevent nuclear reads from mapping to the mitochondrial genome?
+- Can you identify mapped read pairs?
+---
 
 <hr><br>
 ### Stop here - we will proceed to assembly after lunch?
