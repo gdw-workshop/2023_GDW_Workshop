@@ -127,7 +127,7 @@ Once you have the boa constrictor mitochondrial genome in a folder in Geneious, 
 ---
 
 
-### **Stop here** - we will proceed to assembly after lunch?
+### **Stop here** - we will proceed to assembly after lunch.
 
 ---
 
@@ -149,7 +149,7 @@ Now, we'll run bowtie2 to map reads to the _entire_ boa constrictor genome.  Thi
 2. We'll keep track of which reads _didn't_ map to the genome using the --un-conc option
 
 ```
-bowtie2 -x /home/data_for_classes/2022_MIP_280A4/boa_constrictor_bt_index \
+bowtie2 -x boa_constrictor_bt_index \
    --local \
    -1 SRR1984309_1_trimmed.fastq \
    -2 SRR1984309_2_trimmed.fastq \
@@ -160,7 +160,7 @@ bowtie2 -x /home/data_for_classes/2022_MIP_280A4/boa_constrictor_bt_index \
 ```
 
 **Command line options explained:**
-- -x: the bowtie2 index
+- -x: the name of the bowtie2 index
 - --local: run bowtie2 in local mode: don't require the ends of reads to map
 - -1: the first file containing paired reads
 - -2: the second file containing paired reads
@@ -181,7 +181,7 @@ bowtie2 -x /home/data_for_classes/2022_MIP_280A4/boa_constrictor_bt_index \
 Bowtie2 outputs information about whether reads mapped concordantly or not and whether they mapped uniquely or not.  It's honestly confusing to wade through these different categories, so let's just map the reads to the genome without accounting for whether they are paired or not.  Now, run bowtie2 like this:
 
 ```
-bowtie2 -x /home/data_for_classes/2021_MIP_280A4/boa_constrictor_bt_index \
+bowtie2 -x boa_constrictor_bt_index \
    --local \
    -U SRR1984309_1_trimmed.fastq \
    -U SRR1984309_2_trimmed.fastq \
