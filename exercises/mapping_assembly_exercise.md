@@ -1,6 +1,6 @@
 ## Mapping and Assembly Exercise
 
-GDW 2021
+GDW 2023
 ---
 
 ### In this exercise, we will learn how to create an index from a reference sequence, then map reads to that reference sequence, and will perform a de novo assembly.  We'll:
@@ -126,9 +126,10 @@ Once you have the boa constrictor mitochondrial genome in a folder in Geneious, 
 - Can you identify mapped read pairs?
 ---
 
-<hr><br>
-### Stop here - we will proceed to assembly after lunch?
-<hr><br>
+
+### **Stop here** - we will proceed to assembly after lunch?
+
+---
 
 ### De-novo assembly of non-mapping reads
 
@@ -143,19 +144,65 @@ First, let's transfer the bowtie index from the HDD to your working folder:
 cp /Users/gdw/Desktop/GDW_Data/MarkS/boa_constrictor_bt_index* .
 ```
 
-Now, we'll run bowtie2 to map reads to the entire boa genome.  This time we'll run bowtie2 a little differently:
+Now, we'll run bowtie2 to map reads to the _entire_ boa constrictor genome.  This time we'll run bowtie2 a little differently:
 1. We'll run bowtie2 in [local mode](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#end-to-end-alignment-versus-local-alignment), which is a more permissive mapping mode that doesn't require the ends of the reads to map
 2. We'll keep track of which reads _didn't_ map to the genome using the --un-conc option
 
 ```
-bowtie2 -x boa_constrictor_bt_index --local \
-   -q -1 SRR1984309_1_trimmed.fastq  -2 SRR1984309_2_trimmed.fastq \
-   --no-unal --threads 4 -S SRR1984309_mapped_to_boa_genome.sam --un-conc SRR1984309_not_boa_mapped.fastq
+bowtie2 -x /home/data_for_classes/2022_MIP_280A4/boa_constrictor_bt_index \
+   --local \
+   -1 SRR1984309_1_trimmed.fastq \
+   -2 SRR1984309_2_trimmed.fastq \
+   --no-unal \
+   --threads 4 \
+   -S SRR1984309_mapped_to_boa_genome.sam \
+   --un-conc SRR1984309_not_boa_mapped.fastq
 ```
 
-You should see that 90% of the reads aligned to the boa constrictor genome sequence, leaving 10% in the files that contain the non-mapping reads: SRR1984309_not_boa_mapped.1.fastq and ....2.fastq
+**Command line options explained:**
+- -x: the bowtie2 index
+- --local: run bowtie2 in local mode: don't require the ends of reads to map
+- -1: the first file containing paired reads
+- -2: the second file containing paired reads
+- --no-unal: don't report unmapped reads in the sam file
+- --threads 4: use 4 threads (4 CPUs) to make bowtie2 run faster
+- -S: name of the sam format output file that will be generated
+- --un-conc: put read pairs that *don't* map into new fastq files with this name
 
-How many non-mapping reads remain in these files?
+---
+:question: **Questions about this mapping**
+- What percentage of reads mapped to the nuclear boa constrictor genome (nuclear + mitochondrial)?   [This is the "overall alignment rate"]
+- How does this compare to the percentage of reads that mapped to just the mitochondrial genome?
+- Does it make sense biologically that this percentage of reads mapped to the entire genome?
+- What might be the source or sources of non-mapping reads?
+- The non-mapping reads should be in new files named `SRR1984309_not_boa_mapped.1.fastq` and `SRR1984309_not_boa_mapped.2.fastq`.  How many reads are in each of these files?
+---
+
+Bowtie2 outputs information about whether reads mapped concordantly or not and whether they mapped uniquely or not.  It's honestly confusing to wade through these different categories, so let's just map the reads to the genome without accounting for whether they are paired or not.  Now, run bowtie2 like this:
+
+```
+bowtie2 -x /home/data_for_classes/2021_MIP_280A4/boa_constrictor_bt_index \
+   --local \
+   -U SRR1984309_1_trimmed.fastq \
+   -U SRR1984309_2_trimmed.fastq \
+   --no-unal \
+   --threads 4 \
+   -S SRR1984309_mapped_to_boa_genome.unpaired.sam
+```
+
+The big difference with running bowtie2 this time is that you are telling it that all the reads are unpaired (using the -U option) instead of specifying that your reads are paired (using the -1 and -2 options).  Running bowtie2 this way makes it easier to understand what fraction of reads mapped uniquely.
+
+---
+:question: **Questions about this mapping**
+- What percentage of reads mapped _uniquely_ to the boa constrictor genome?
+- What percentage of reads mapped _non-uniquely_ (>1 time) to the boa constrictor genome?
+- What can you say about the regions of the boa constrictor genome to which these reads mapped non-uniquely?
+---
+
+## Assembly
+
+Now, we are going to assembly the boa constrictor **non-mapping** reads to try to understand what might be making this snake sick.
+There are a variety of de novo assemblers with different strengths and weaknesses.  We're going to use the [SPAdes assembler](http://cab.spbu.ru/software/spades/), which is a great general purpose assembler.
 
 We will use these non-mapping reads as input to our de novo SPAdes assembly.  Run SPAdes as follows:
 
@@ -166,14 +213,11 @@ spades.py   -o SRR1984309_spades_assembly \
    -m 12 -t 4
 ```
 
-Command line options explained:
-```
-spades.py   
-   -o SRR1984309_spades_assembly \         # name of directory (folder) where SPAdes output will go
-   --pe1-1 SRR1984309_not_boa_mapped.1.fastq \   # name of read1 input file
-   --pe1-2 SRR1984309_not_boa_mapped.2.fastq \   # name of read2 input file
-   -m 12 -t 4                    # use 12 Gb of RAM and 4 cores 
-```
+**Command line options explained:**
+- -o:  name of new directory where SPAdes output will go
+- --pe1-1:  name of first paired read input file
+- --pe1-2:  name of second paired read input file
+- -m 12 -t 4: use 12 Gb of RAM and 4 threads (CPUs)
 
 SPAdes will output a bunch of status messages to the screen as it runs the assembly.  Can you tell what the different assembly steps are?
 
@@ -182,6 +226,14 @@ After SPAdes finishes, there will be output files in the `SRR1984309_spades_asse
 - contigs.fasta:   the assembled contigs in FASTA format
 - scaffolds.fasta: scaffolds in FASTA format
 - assembly_graph.fastg:   de bruijn graphs used to create contigs.  Can be visualized using a tool like [Bandage](https://rrwick.github.io/Bandage/)
+
+
+---
+:question: **Questions about the assembly**
+- Spades produced an output file named scaffolds.fasta.  How is this file different from contigs.fasta?
+- What is needed to go beyond contigs to produce a scaffolded assembly?
+- What kmer sizes did Spades use during this assembly?  (Hint: run `grep started spades.log` in the spades output directory to search for the text "started" in the spades log file)
+---
 
 Let's look at the contigs in contigs.fasta.  Navigate to that file in the Finder and open it using a text editor like BBEdit.
 

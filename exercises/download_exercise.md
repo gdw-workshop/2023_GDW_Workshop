@@ -1,5 +1,5 @@
 # Downloading and Processing Datasets and Genomes exercise
-[GDW 2021](http://gdwworkshop.colostate.edu/)
+[GDW 2023](http://gdwworkshop.colostate.edu/)
 ---
 
 ## In this exercise, we will download, process, and evaluate NGS datasets and genome sequences.  We will:
@@ -72,12 +72,13 @@ Have a look at the first 20 lines of the fastq files using the head command
 head -20 SRR1984309_1.fastq SRR1984309_2.fastq
 ```
 
+---
+:question: **Questions:**
 - What is on each of the 4-lines that make up each sequence?  (See: [FASTQ format](https://en.wikipedia.org/wiki/FASTQ_format))  
 - The quality scores for this dataset are in Illumina 1.9 format.  What is the maximum quality score for each basecall?  How does that relate to the estimated probability that a basecall is wrong?
 - How many reads are in each file?  (Hint: the `wc -l name_of_file` command will tell you the number of lines in the file)
-
-
 ---
+
 
 
 ### Using FastQC to evaluate quality of NGS data
@@ -155,7 +156,7 @@ ls -lh
 - What percent of read pairs made it through the filtering?
 ---
 
-Now, use `fastqc` again to analyze the trimmed datasets. Open the resulting html files in a browswer and answer these questions:
+Now, use `fastqc` again to analyze the trimmed datasets to answer these questions:
 
 ---
 :question: **Questions:**
@@ -164,7 +165,6 @@ Now, use `fastqc` again to analyze the trimmed datasets. Open the resulting html
 ---
 
 Note: There are many other trimming tools besides cutadapt. Other popular trimming tools include [BBDuk](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/bbduk-guide/) and [fastp](https://github.com/OpenGene/fastp)
-
 
 
 ---
