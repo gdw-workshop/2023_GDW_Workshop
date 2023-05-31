@@ -21,7 +21,7 @@ Here we will briefly learn how to interact with a UNIX computer via the command 
 
 Before we begin, you will need to open the 'terminal' on your MacBook Pro computers.  Simply search for \"terminal\" using the magnifying glass in the upper right-hand corner and select the terminal application.  See the red arrow in the image below:  
 
-![term-search](../images//term1.png)
+![term-search](../images/term1.png)
 
 Did you open the terminal?  If so, it should look something like this:  
 
@@ -265,7 +265,7 @@ Is the `Practice` directory still there?
 
 ## Test time!
 Now, on your own I want you to:
-1. Create a directory in your Desktop called "GDW_2021_PRACTICE"
+1. Create a directory in your Desktop called "GDW_2023_PRACTICE"
 2. Make a file called "sequences.fasta" in this new folder.
 3. Write the sequence "ATGCGT" to the file "sequences.fasta"
 4. Record the file size in bytes.

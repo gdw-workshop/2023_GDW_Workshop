@@ -1,6 +1,6 @@
 ## Mapping and Assembly Exercise
 
-GDW 2021
+GDW 2023
 ---
 
 ### In this exercise, we will learn how to create an index from a reference sequence, then map reads to that reference sequence, and will perform a de novo assembly.  We'll:
@@ -10,9 +10,9 @@ GDW 2021
 
 We will map reads in the SRA dataset that we downloaded yesterday to the boa constrictor mtDNA sequence that we also downloaded yesterday.  
 
-Read mapping tools map reads very quickly using pre-built indexes of the reference sequence(s) to which reads will be mapped.  We'll use the [Bowtie2](http://www.nature.com/nmeth/journal/v9/n4/full/nmeth.1923.html) mapper. Bowtie2 has a nice [manual](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml) that explains how to use this software. 
+Read mapping tools map reads very quickly because they use pre-built indexes of the reference sequence(s). We'll use the [Bowtie2](http://www.nature.com/nmeth/journal/v9/n4/full/nmeth.1923.html) mapper. Bowtie2 has a nice [manual](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml) that explains how to use this software. 
 
-Note that there are a variety of other good read mapping tools, such as [HiSat](https://ccb.jhu.edu/software/hisat2/index.shtml), [gmap/gsnap](http://research-pub.gene.com/gmap/), and [STAR](https://github.com/alexdobin/STAR).
+There are a variety of other good read mapping tools, such as [BWA](https://github.com/lh3/bwa) and [minimap2](https://github.com/lh3/minimap2), which works well for long read data or long sequences.
 
 The first step will be to create an index of our reference sequence (the boa constrictor mitochondrial genome).
 
@@ -47,29 +47,35 @@ Note that this index building went very fast for a small genome like the boa mtD
 
 ### Mapping reads in the SRA dataset to the boa constrictor mitochondrial genome 
 
-Now that we've created the index, we can map reads to the boa mtDNA.  We'll map our Trimmomatic-trimmed paired reads to this sequence, as follows:
+Now that we've created the index, we can map reads to the boa mtDNA.  We'll map our cutadapt-trimmed paired reads to this sequence, as follows:
 
 ```
 bowtie2 -x boa_mtDNA_bt_index \
-   -q -1 SRR1984309_1_trimmed.fastq  -2 SRR1984309_2_trimmed.fastq \
-   --no-unal --threads 4 -S SRR1984309_mapped_to_boa_mtDNA.sam
+   -1 SRR1984309_1_trimmed.fastq \
+   -2 SRR1984309_2_trimmed.fastq \
+   --no-unal \
+   --threads 8 \
+   -S SRR1984309_mapped_to_boa_mtDNA.sam
 ```
 
-Let's deconstruct this command line (note: the comments will screw up this command: don't copy and paste from this box): 
-```
- bowtie2
-   -x boa_mtDNA_bt_index         # -x: name of index you created with bowtie2-build
-   -q                # -q: the reads are in FASTQ format
-   -1 SRR1984309_1_trimmed.fastq      # name of the paired-read FASTQ file 1
-   -2 SRR1984309_2_trimmed.fastq      # name of the paired-read FASTQ file 2
-   --no-unal            # don't output unmapped reads to the SAM output file (will make it _much_ smaller
-   --threads 4            # since our computers have multiple processers, run on 4 processors to go faster
-   -S SRR1984309_mapped_to_boa_mtDNA.sam   # name of output file in SAM format
-```
+Let's deconstruct this command line:
 
-- Some questions to consider:
-  - What percentage of reads mapped to the boa mitochondrial genome?
-  - Does this make biological sense?
+| Part | Purpose |
+| ---- | ------- |
+| bowtie2 | name of command |
+| -x boa_mtDNA_bt_index | -x: name of index you created with bowtie2-build |
+| -1 SRR1984309_1_trimmed.fastq | name of the paired-read FASTQ file 1 |
+| -2 SRR1984309_2_trimmed.fastq | name of the paired-read FASTQ file 2 |
+| --no-unal | don't output unmapped reads to the SAM output file (will make it _much_ smaller |
+| --threads 8 | since the server has multiple processers, run on 8 processors to go faster |
+| -S SRR1984309_mapped_to_boa_mtDNA.sam   | name of output file in [SAM format](https://en.wikipedia.org/wiki/SAM_(file_format)) |
+
+
+---
+:question: **Questions:**
+- What percentage of reads mapped to the boa mitochondrial genome?
+- Does this make sense biologically?  Remember that this is total RNA from snake liver tissue.  Explain.
+---
 
 
 The output file SRR1984309_mapped_to_boa_mtDNA.sam is in [SAM format](https://en.wikipedia.org/wiki/SAM_(file_format)).  This is a plain text format, so you can look at the first 20 lines by running this command:
@@ -81,6 +87,12 @@ head -20 SRR1984309_mapped_to_boa_mtDNA.sam
 
 You can see that there are several header lines beginning with `@`, and then one line for each mapped read.  See [here](http://genome.sph.umich.edu/wiki/SAM) or [here](https://samtools.github.io/hts-specs/SAMv1.pdf) for more information about interpreting SAM files.
 
+---
+:question: **Answer the following questions about the first mapped read:**
+- What position in the mtDNA sequence did the first mapped read map to?
+- What is the mapping quality for this read's mapping?
+- What does this mapping quality score indicate?
+---
 
 
 ### Visualizing aligned (mapped) reads in Geneious
@@ -99,18 +111,25 @@ Once you have the boa constrictor mitochondrial genome in a folder in Geneious, 
   - Click View->Expand Document View to enlarge the alignment
   - Try playing with the visualization settings in the panels on the right of the alignment
 
-- Some questions to consider when viewing the alignment:
-  - Is the coverage even across the mitochondrial genome?  What is the average coverage?
-  - This is essentially RNA-Seq data.  Are the mitochondrial genes expressed evenly?  How does this relate to coverage?
-  - Are there any variants between this snake's mitochondrial genome sequence and the boa constrictor reference sequence?  Is that expected?
-    - Can you distinguish true variants from sequencing errors?
-  - Is it possible that reads that derive from other parts of the boa constrictor genome are mapping here?  How would you prevent that?
-  - Can you identify mapped read pairs?  
+---
+:question: **Questions to consider when viewing the alignment:**
+- What is the average coverage depth across the mitochondrial genome?
+- Is the coverage even across the mitochondrial genome?
+- Would you expect coverage to be even across the genome?  (Recall that this data is derived from total RNA from liver tissue).
+- Are the mitochondrial genes expressed evenly?
+- Are there any variants between this snake's mitochondrial genome sequence and the boa constrictor reference sequence?
+- Is it expected that there are variants between these reads and this reference sequence?  Explain your answer.
+- Can you distinguish true variants from sequencing errors?
+- In general, how can you distinguish true variants from sequencing errors?
+- Is it possible that reads that derive from the boa constrictor nuclear genome are mapping to this sequence?
+- How would you prevent nuclear reads from mapping to the mitochondrial genome?
+- Can you identify mapped read pairs?
+---
 
 
-<hr><br>
-### Stop here - we will proceed to assembly after lunch?
-<hr><br>
+### **Stop here** - we will proceed to assembly after lunch.
+
+---
 
 ### De-novo assembly of non-mapping reads
 
@@ -125,19 +144,65 @@ First, let's transfer the bowtie index from the HDD to your working folder:
 cp /Users/gdw/Desktop/GDW_Data/MarkS/boa_constrictor_bt_index* .
 ```
 
-Now, we'll run bowtie2 to map reads to the entire boa genome.  This time we'll run bowtie2 a little differently:
+Now, we'll run bowtie2 to map reads to the _entire_ boa constrictor genome.  This time we'll run bowtie2 a little differently:
 1. We'll run bowtie2 in [local mode](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#end-to-end-alignment-versus-local-alignment), which is a more permissive mapping mode that doesn't require the ends of the reads to map
 2. We'll keep track of which reads _didn't_ map to the genome using the --un-conc option
 
 ```
-bowtie2 -x boa_constrictor_bt_index --local \
-   -q -1 SRR1984309_1_trimmed.fastq  -2 SRR1984309_2_trimmed.fastq \
-   --no-unal --threads 4 -S SRR1984309_mapped_to_boa_genome.sam --un-conc SRR1984309_not_boa_mapped.fastq
+bowtie2 -x boa_constrictor_bt_index \
+   --local \
+   -1 SRR1984309_1_trimmed.fastq \
+   -2 SRR1984309_2_trimmed.fastq \
+   --no-unal \
+   --threads 4 \
+   -S SRR1984309_mapped_to_boa_genome.sam \
+   --un-conc SRR1984309_not_boa_mapped.fastq
 ```
 
-You should see that 90% of the reads aligned to the boa constrictor genome sequence, leaving 10% in the files that contain the non-mapping reads: SRR1984309_not_boa_mapped.1.fastq and ....2.fastq
+**Command line options explained:**
+- -x: the name of the bowtie2 index
+- --local: run bowtie2 in local mode: don't require the ends of reads to map
+- -1: the first file containing paired reads
+- -2: the second file containing paired reads
+- --no-unal: don't report unmapped reads in the sam file
+- --threads 4: use 4 threads (4 CPUs) to make bowtie2 run faster
+- -S: name of the sam format output file that will be generated
+- --un-conc: put read pairs that *don't* map into new fastq files with this name
 
-How many non-mapping reads remain in these files?
+---
+:question: **Questions about this mapping**
+- What percentage of reads mapped to the nuclear boa constrictor genome (nuclear + mitochondrial)?   [This is the "overall alignment rate"]
+- How does this compare to the percentage of reads that mapped to just the mitochondrial genome?
+- Does it make sense biologically that this percentage of reads mapped to the entire genome?
+- What might be the source or sources of non-mapping reads?
+- The non-mapping reads should be in new files named `SRR1984309_not_boa_mapped.1.fastq` and `SRR1984309_not_boa_mapped.2.fastq`.  How many reads are in each of these files?
+---
+
+Bowtie2 outputs information about whether reads mapped concordantly or not and whether they mapped uniquely or not.  It's honestly confusing to wade through these different categories, so let's just map the reads to the genome without accounting for whether they are paired or not.  Now, run bowtie2 like this:
+
+```
+bowtie2 -x boa_constrictor_bt_index \
+   --local \
+   -U SRR1984309_1_trimmed.fastq \
+   -U SRR1984309_2_trimmed.fastq \
+   --no-unal \
+   --threads 4 \
+   -S SRR1984309_mapped_to_boa_genome.unpaired.sam
+```
+
+The big difference with running bowtie2 this time is that you are telling it that all the reads are unpaired (using the -U option) instead of specifying that your reads are paired (using the -1 and -2 options).  Running bowtie2 this way makes it easier to understand what fraction of reads mapped uniquely.
+
+---
+:question: **Questions about this mapping**
+- What percentage of reads mapped _uniquely_ to the boa constrictor genome?
+- What percentage of reads mapped _non-uniquely_ (>1 time) to the boa constrictor genome?
+- What can you say about the regions of the boa constrictor genome to which these reads mapped non-uniquely?
+---
+
+## Assembly
+
+Now, we are going to assembly the boa constrictor **non-mapping** reads to try to understand what might be making this snake sick.
+There are a variety of de novo assemblers with different strengths and weaknesses.  We're going to use the [SPAdes assembler](http://cab.spbu.ru/software/spades/), which is a great general purpose assembler.
 
 We will use these non-mapping reads as input to our de novo SPAdes assembly.  Run SPAdes as follows:
 
@@ -148,14 +213,11 @@ spades.py   -o SRR1984309_spades_assembly \
    -m 12 -t 4
 ```
 
-Command line options explained:
-```
-spades.py   
-   -o SRR1984309_spades_assembly \         # name of directory (folder) where SPAdes output will go
-   --pe1-1 SRR1984309_not_boa_mapped.1.fastq \   # name of read1 input file
-   --pe1-2 SRR1984309_not_boa_mapped.2.fastq \   # name of read2 input file
-   -m 12 -t 4                    # use 12 Gb of RAM and 4 cores 
-```
+**Command line options explained:**
+- -o:  name of new directory where SPAdes output will go
+- --pe1-1:  name of first paired read input file
+- --pe1-2:  name of second paired read input file
+- -m 12 -t 4: use 12 Gb of RAM and 4 threads (CPUs)
 
 SPAdes will output a bunch of status messages to the screen as it runs the assembly.  Can you tell what the different assembly steps are?
 
@@ -165,13 +227,24 @@ After SPAdes finishes, there will be output files in the `SRR1984309_spades_asse
 - scaffolds.fasta: scaffolds in FASTA format
 - assembly_graph.fastg:   de bruijn graphs used to create contigs.  Can be visualized using a tool like [Bandage](https://rrwick.github.io/Bandage/)
 
+
+---
+:question: **Questions about the assembly**
+- Spades produced an output file named scaffolds.fasta.  How is this file different from contigs.fasta?
+- What is needed to go beyond contigs to produce a scaffolded assembly?
+- What kmer sizes did Spades use during this assembly?  (Hint: run `grep started spades.log` in the spades output directory to search for the text "started" in the spades log file)
+---
+
 Let's look at the contigs in contigs.fasta.  Navigate to that file in the Finder and open it using a text editor like BBEdit.
 
 The contigs are sorted in order of length.  Recall that these are contigs made from the reads that _didn't_ map to the boa constrictor genome. Let's try to figure out what some of the contigs are.
 
-Copy the first 3 contigs (the 3 longest contigs) and open a browser, navigate to the [NCBI blastn page](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome), and paste the sequences of the first 3 contigs into the search field.  Make sure that the megablast option is selected, and run the BLAST.  
+Copy the first 4 contigs (the 4 longest contigs) and open a browser, navigate to the [NCBI blastn page](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome), and paste the sequences of the first 4 contigs into the search field.  Make sure that the megablast option is selected, and run the BLAST.  
 
-- What are the sequences?  Are you confident in your conclusions?  Do they make sense?
+---
+:question: **Questions about contigs**
+- What are the first 4 (the 4 longest) contigs?  Are you confident in your conclusions?  Do they make sense biologically?
+---
 
 
 #### Additional, time-permitting exercises 

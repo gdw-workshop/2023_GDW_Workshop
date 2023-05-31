@@ -1,5 +1,5 @@
 # Downloading and Processing Datasets and Genomes exercise
-[GDW 2021](http://gdwworkshop.colostate.edu/)
+[GDW 2023](http://gdwworkshop.colostate.edu/)
 ---
 
 ## In this exercise, we will download, process, and evaluate NGS datasets and genome sequences.  We will:
@@ -26,7 +26,7 @@ https://www.ncbi.nlm.nih.gov/pubmed/25993603
 Scroll down and find the 'Related information' section of the bottom right of the page.  Click on the SRA link.  This shows the SRA datasets associated with this paper.  Search for `snake_7`.  Note that the reads in this dataset are already trimmed.  Note at the bottom of the page the run # (SRR #) for this dataset: SRR1984309
 
 
-We're going to download this dataset using the command line tool fastq-dump, part of the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc).  First, let's create a directory (folder) in which to work.  Open the terminal app on your laptop and type these commands:
+We're going to download this dataset using the command line tool fasterq-dump, part of the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc).  First, let's create a directory (folder) in which to work.  Open the terminal app on your laptop and type these commands:
 
 change (move) to your home directory, if not already there
 ```
@@ -53,12 +53,12 @@ double check you are in the directory you think you are:
 pwd
 ```
 
-We will download the dataset using the fastq-dump tool, part of the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc). 
+We will download the dataset using the fasterq-dump tool, part of the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc). 
 
 To run fasta-dump, you just need to specify the run # (the SRR#) of the dataset you want.  Recall that our run # is SRR1984309. The --split-files option of the command will create 2, synchronized files for the paired reads
 
 ```
-fastq-dump SRR1984309 --split-files
+fasterq-dump SRR1984309 --split-files
 ```
 
 Confirm that you downloaded the files.  You should see files named SRR1984309_1.fastq and SRR1984309_2.fastq that are each 44 Mb.
@@ -72,12 +72,13 @@ Have a look at the first 20 lines of the fastq files using the head command
 head -20 SRR1984309_1.fastq SRR1984309_2.fastq
 ```
 
+---
+:question: **Questions:**
 - What is on each of the 4-lines that make up each sequence?  (See: [FASTQ format](https://en.wikipedia.org/wiki/FASTQ_format))  
 - The quality scores for this dataset are in Illumina 1.9 format.  What is the maximum quality score for each basecall?  How does that relate to the estimated probability that a basecall is wrong?
 - How many reads are in each file?  (Hint: the `wc -l name_of_file` command will tell you the number of lines in the file)
-
-
 ---
+
 
 
 ### Using FastQC to evaluate quality of NGS data
@@ -96,41 +97,75 @@ These datasets have already been pre-cleaned, so they look pretty good.  Note th
 
 ---
 
-### Read trimming with trimmomatic
+### Cleaning raw NGS data
 
-[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) is a tool that can be used to trim low quality and adapter sequences from NGS reads.  It's always a good idea to trim raw NGS reads.
+NGS data can have problems.  Two main problems are:
 
-Trimmomatic has _a lot_ of options, described [here](http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf)
+1. Often, NGS reads contain adapters sequences.  This happens when the library molecules are too short, and the sequence reads go all the way through the insert (the part of the library molecule derived from the sample) and into the opposite adapter.
 
-We will run this command to trim our reads:
+<img src="paired_read_outcomes.png" alt="Adapter sequences occur in reads when reads are longer than the insert" width="650"/>
+
+2. Quality tends to decrease towards the ends of Illumina reads.  It is good to trim off low quality bases from the ends of reads.
+
+[cutadapt](https://cutadapt.readthedocs.io/en/stable/) is a tool that can be used to trim low quality and adapter sequences from NGS reads.
+
+We will run this cutadapt command to trim our reads:
 
 ```
-java -jar ~/Desktop/GDW_Apps/Trimmomatic-0.39/trimmomatic-0.39.jar PE  SRR1984309_1.fastq SRR1984309_2.fastq SRR1984309_1_trimmed.fastq SRR1984309_1_trimmed_unpaired.fastq SRR1984309_2_trimmed.fastq SRR1984309_2_trimmed_unpaired.fastq ILLUMINACLIP:../Desktop/GDW_Apps/Trimmomatic-0.39/adapters/NexteraPE-PE.fa:2:30:10 LEADING:20 TRAILING:20 SLIDINGWINDOW:4:20 MINLEN:60 
-``` 
+cutadapt \
+   -a CTGTCTCTTATACACATCT \
+   -A CTGTCTCTTATACACATCT \
+   -q 30,30 \
+   --minimum-length 80 \
+   -o SRR1984309_1_trimmed.fastq \
+   -p SRR1984309_2_trimmed.fastq \
+   SRR1984309_1.fastq \
+   SRR1984309_2.fastq \
+   | tee cutadapt.log
+```
+
+Note that using a `\` as the last character of a command line allows you to split commands over multiple lines.  This can improve readability of long commands.
+
+Let's breakdown the [cutadapt options](https://cutadapt.readthedocs.io/en/stable/guide.html) that we used:
+
+| Part | Meaning |
+| ---- | ------- |
+| cutadapt | the name of the command |
+| -a CTGTCTCTTATACACATCT | -a: remove a sequence from the 3' end of reads.<br>CTGTCT... = the Nextera-style adapter sequence to remove.|
+| -A CTGTCTCTTATACACATCT | -A: remove a sequence from the 3' end of *paired* reads. |
+| -q 30,30 | trim bases with Q scores < 30 from 5' and 3' ends of reads |
+| --minimum-length 80 | only keep reads that are >= 80 bases after trimming |
+| -o SRR1984309_1_trimmed.fastq | the name of a new file that will contain trimmed reads. |
+| -p SRR1984309_2_trimmed.fastq | the name of a new file that will contain trimmed paired reads. |
+| SRR1984309_1.fastq | an input file containing reads. |
+| SRR1984309_2.fastq | an input file containing paired reads. |
+| | tee cutadapt.log | see question below |
 
 
-Breaking this down:
-- Names of input and output files: SRR1984309_1.fastq etc.    
-- Trim Nextera adapter sequences (ILLUMINACLIP:...NexteraPE-PE.fa:2:30:10)
-- Remove low quality bases from the 5' ends of the reads (below quality 20) (LEADING:20)
-- Remove low quality bases from the 3' ends of the reads (below quality 20) (TRAILING:20)
-- Trim reads if internal low quality bases (SLIDINGWINDOW:4:20)
-- Remove reads shorter than 60 bases (MINLEN:60)
-
-After you've completed trimming, look to see that the trimmed files exist in your directory:
+OK, let's confirm that the trimmed read fastqs exist. Cutadapt should have created 2 new fastq files and a log file:
 
 ```
 ls -lh
 ```
 
-- how many reads remain in the trimmed fastq files?
+---
+:question: **Questions: (hint: look in cutadapt.log for answers)**
+- What does the `| tee cutadapt.log` do in the command above?
+- What percentage of all bases were quality-trimmed (hint: see `cutadapt.log`)?
+- What percent of read1 reads contained adapter sequence?
+- What percent of read pairs made it through the filtering?
+---
 
-Open your trimmed fastq files in FastQC.  
+Now, use `fastqc` again to analyze the trimmed datasets to answer these questions:
 
-- Did the quality of the basecalls improve?
+---
+:question: **Questions:**
+- How many read pairs remain after trimming?
 - Did the trimming remove Nextera adapters?
+---
 
-Note: There are other trimming tools that you may find easier to use, such as [cutadapt](http://cutadapt.readthedocs.io/) 
+Note: There are many other trimming tools besides cutadapt. Other popular trimming tools include [BBDuk](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/bbduk-guide/) and [fastp](https://github.com/OpenGene/fastp)
+
 
 ---
 
