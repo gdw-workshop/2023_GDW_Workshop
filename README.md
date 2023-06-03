@@ -25,7 +25,7 @@ Time | Activity
 **10:00-10:15** | Opening Remarks - Introduction to the Lab Computers
 **10:15-12:15** | Bob Fitak - The UNIX Command line [Lecture](./lectures/Fitak_GWD2023_CommandLine.pdf) and [Tutorial](./exercises/command-line-tutorial.md)
 **12:15-13:15** | Lunch provided onsite
-**13:15-14:30** |  Mark Stenglein - Principles of Computing [Lecture](./lectures/Stenglein_computing_introduction.pdf) and [Command Line Tutorial Part 2](./exercises/command_line_tutorial_part2.md)
+**13:15-14:30** |  Mark Stenglein - Command Line Tutorial Part 2 [Lecture](./lectures/Stenglein_command_line_part_2.pdf) and [software installation exercise](./exercises/software_installation_exercise.md).  Additional content: [Principles of Computing slides](./lectures/Stenglein_computing_introduction.pdf) and [Additional command line exercises](./exercises/additional_command_line_exercises.md)
 **14:30-14:45** | Coffee break
 **14:45-16:00** | Complete tutorials, or time permitting: Bob Fitak - An Introduction to R and R Studio (Time Permitting)- [Tutorial](./exercises/intro_R.md)
 **18:00-18:30** | Registration - Smith Alumni Center
