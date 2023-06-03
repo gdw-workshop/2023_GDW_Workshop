@@ -1,6 +1,6 @@
 # Software Installation Exercise
 
-Installing and managing software in a linux environment can be a challenge.  Let's practice installing a bioinformatics tool named jellyfish from the command line.  We will do this two different ways:
+Installing and managing software in a command-line environment can be a challenge.  Let's practice installing a bioinformatics tool named jellyfish from the command line.  We will do this two different ways:
 
 1. We will download a jellyfish binary: that is, a program ready to run. 
 
@@ -33,7 +33,7 @@ What is going on???  How can you fix this?
 
 <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> 
 
-One issue is that the file jellyfish-macosx is not in your [PATH](https://www.digitalocean.com/community/tutorials/how-to-view-and-update-the-linux-path-environment-variable).  The jellyfish-macosx file is in your home directory, which is not in your PATH.  Let's confirm this by using the which command again:
+One issue is that the file jellyfish-macosx is not in your [PATH](https://www.digitalocean.com/community/tutorials/how-to-view-and-update-the-linux-path-environment-variable).  The jellyfish-macosx file is in your home directory, which is not in your PATH.  Let's confirm this by using the which command:
 
 ```
 # is jellyfish-macosx in your PATH?
@@ -46,11 +46,13 @@ echo $PATH
 To fix this situation, we could either:
 
 1. move the jellyfish-macosx file into a directory in your PATH, or 
-2. add your home directory to your PATH [not recommended].  
-3. Run the jellyfish-macosx command by specifying its location (e.g. `./jellfish-macosx`)
+2. add your home directory to your PATH [generally not recommended], or  
+3. run the jellyfish-macosx command by specifying its location (e.g. `./jellyfish-macosx`)
+
+Let's do option 1: move jellyfish-macosx to a directory already in our PATH.
 
 ```
-# option 1: move jellyfish to a directory already in your PATH
+# move jellyfish to a directory already in your PATH
 sudo mv jellyfish-macosx /usr/local/bin
 ```
 
@@ -66,6 +68,7 @@ jellyfish-macosx
 
 Arrgh!  This is why people get frustrated with the command line.  What's happening now and how can we fix?
 
+<br><br><br><br><br><br><br><br><br><br>
 
 #### Permissions
 
@@ -117,7 +120,7 @@ Jellyfish got a little mad because you didn't supply enough arguments, but at le
 
 ### installing jellyfish using conda
 
-Many commonly used bioinformatics software is available as conda packages.  For instance, here is a [conda package for jellyfish](https://anaconda.org/conda-forge/jellyfish).
+Many commonly used bioinformatics software is available as conda packages.  For instance, here is a [conda package for jellyfish](https://anaconda.org/bioconda/jellyfish).
 
 "[Conda](https://docs.conda.io/en/latest/) quickly installs, runs and updates packages and their dependencies".  Conda is a great way to instal software.  Advantages of using conda include:
 
