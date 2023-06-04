@@ -41,7 +41,7 @@ Time | Activity
 <img width=150/> | <img width=600/>
 **18:30-18:45** | Welcome and Opening Remarks, Sue VandeWoude and Jill Pecon-Slattery
 **18:45-19:30** | 15 Attendee Presentations
-**19:30-20:00** | Introduction to the group projects, Bob Fitak 
+**19:30-20:00** | Introduction to the group projects, Bob Fitak ([scenarios](./resources/scenarios.pdf)) 
 **18:30-21:30** | Refreshments and Social Time 
 
 
