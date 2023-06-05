@@ -6,7 +6,7 @@
 
 * Download a dataset from the SRA
 * Use the FASTQC tool to assess the quality of the reads in the dataset
-* Use trimmomatic to remove low quality parts of the reads1
+* Use cutadapt to remove low quality parts of the reads1
 * Find and download genome sequences and associated annotation from NCBI
 
 ---
@@ -23,7 +23,9 @@ To get the dataset, open a browser and navigate to the pubmed page for the datas
 
 https://www.ncbi.nlm.nih.gov/pubmed/25993603
 
-Scroll down and find the 'Related information' section of the bottom right of the page.  Click on the SRA link.  This shows the SRA datasets associated with this paper.  Search for `snake_7`.  Note that the reads in this dataset are already trimmed.  Note at the bottom of the page the run # (SRR #) for this dataset: SRR1984309
+Scroll down and find the 'Related information' section of the bottom right of the page.  Click on the SRA link.  This shows the SRA datasets associated with this paper.  
+
+At the top of the SRA page, you should see a link to "Send results to Run selector".  Click on this link to open up the Run Selector tool.  Identify the row for the dataset for `snake_7` .  Note the SRA Run # (SRR #) for this dataset: SRR1984309.  We will use this SRR # to download the dataset from the command line.
 
 
 We're going to download this dataset using the command line tool fasterq-dump, part of the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc).  First, let's create a directory (folder) in which to work.  Open the terminal app on your laptop and type these commands:
@@ -72,6 +74,8 @@ Have a look at the first 20 lines of the fastq files using the head command
 head -20 SRR1984309_1.fastq SRR1984309_2.fastq
 ```
 
+It will be helpful to expand the size of your terminal window so you can better see the contents of the files.
+
 ---
 :question: **Questions:**
 - What is on each of the 4-lines that make up each sequence?  (See: [FASTQ format](https://en.wikipedia.org/wiki/FASTQ_format))  
@@ -89,11 +93,38 @@ head -20 SRR1984309_1.fastq SRR1984309_2.fastq
 
 Performing a quick check like this of your data is one of the first things you'll want to do when you receive your new sequencing data (or when you download a dataset from an online repository like the SRA).
 
-FastQC can be used via a graphical interface or via the command line.  On your laptops, the FastQC graphical interface is on the Desktop in: /GDW_Apps/FastQC
+Running fastqc is simple. You just run the `fastqc` command and specify the names of the fastq file(s) you'd like fastqc to analyze:
 
-Navigate to that folder and open FastQC.  Then open the fastq files you downloaded from the SRA.  FastQC will take a couple seconds to analyze them.
+```
+fastqc SRR1984309_1.fastq
+fastqc SRR1984309_2.fastq
+```
 
-These datasets have already been pre-cleaned, so they look pretty good.  Note that there is possible Nextera adapter contamination towards the end of some reads.  This makes sense, because the libraries were made with the Nextera protocol.  In the next section, we will trim those off.
+You could have also run:
+```
+fastqc SRR1984309_1.fastq SRR1984309_2.fastq
+```
+
+
+```
+fastqc SRR1984309_?.fastq 
+```
+
+fastqc creates HTML format output files that you can view in a web browser.  Use the `open` command to open these files (you can also double click on the files if you navigate to the gdw_working folder.
+
+```
+open SRR1984309_1_fastq.html
+open SRR1984309_2_fastq.html
+```
+
+---
+:question: **Questions:**
+- How many read pairs are present in this dataset?
+- How long are these reads?
+- Some sequences are "overepresented".  What does this mean?  How could you figure out what these overrepresented sequences are?
+- Is there evidence of adapter sequence in this dataset?  How do adapter sequences end up in NGS data?
+---
+
 
 ---
 
