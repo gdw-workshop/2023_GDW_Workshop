@@ -12,7 +12,7 @@ We will map reads in the SRA dataset that we downloaded yesterday to the boa con
 
 Read mapping tools map reads very quickly because they use pre-built indexes of the reference sequence(s). We'll use the [Bowtie2](http://www.nature.com/nmeth/journal/v9/n4/full/nmeth.1923.html) mapper. Bowtie2 has a nice [manual](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml) that explains how to use this software. 
 
-There are a variety of other good read mapping tools, such as [BWA](https://github.com/lh3/bwa) and [minimap2](https://github.com/lh3/minimap2), which works well for long read data or long sequences.
+There are a variety of other good read mapping tools, such as [BWA](https://github.com/lh3/bwa).  [minimap2](https://github.com/lh3/minimap2) is a mapper which works well for long read data or long sequences.
 
 The first step will be to create an index of our reference sequence (the boa constrictor mitochondrial genome).
 
@@ -97,7 +97,8 @@ You can see that there are several header lines beginning with `@`, and then one
 
 ### Visualizing aligned (mapped) reads in Geneious
 
-Geneious provides a nice graphical interface for visualizing the aligned reads described in your SAM file.   Other tools for visualizing this kind of data include [IGV](http://software.broadinstitute.org/software/igv/) and [Tablet](https://ics.hutton.ac.uk/tablet/)
+Geneious provides a nice graphical interface for visualizing the aligned reads described in your SAM file.   Other tools for visualizing this kind of data include [IGV](https://software.broadinstitute.org/software/igv/) and [Tablet](https://ics.hutton.ac.uk/tablet/)
+ 
 
 First, you need to have your reference sequence in Geneious, preferably with annotations.  You can do this 2 ways:
 
@@ -114,7 +115,7 @@ Once you have the boa constrictor mitochondrial genome in a folder in Geneious, 
 ---
 :question: **Questions to consider when viewing the alignment:**
 - What is the average coverage depth across the mitochondrial genome?
-- Is the coverage even across the mitochondrial genome?
+- Is the coverage *even* across the mitochondrial genome?
 - Would you expect coverage to be even across the genome?  (Recall that this data is derived from total RNA from liver tissue).
 - Are the mitochondrial genes expressed evenly?
 - Are there any variants between this snake's mitochondrial genome sequence and the boa constrictor reference sequence?
@@ -141,7 +142,11 @@ The instructors have already downloaded an assembly of the boa constrictor genom
 
 First, let's transfer the bowtie index from the HDD to your working folder:
 ```
-cp /Users/gdw/Desktop/GDW_Data/MarkS/boa_constrictor_bt_index* .
+# make sure in the right working directory
+cd ~/gdw_working
+
+# copy the boa constrictor full genome bowtie index to the pwd.  Note the . at the end of the command line
+cp /Users/gdw/Desktop/GDW_Data/Mark/boa_constrictor_bt_index* .
 ```
 
 Now, we'll run bowtie2 to map reads to the _entire_ boa constrictor genome.  This time we'll run bowtie2 a little differently:
