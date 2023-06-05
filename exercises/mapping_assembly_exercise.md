@@ -265,6 +265,7 @@ Another way to validate an assembly is to re-map reads back to it using a mappin
 If time permits, use what you've learned and re-map reads back to these contigs.  To do this, you'll have to create a new bowtie index (e.g. of the 1st 2 or 3 contigs) using bowtie2-build, then use bowtie2 to map reads.  Then you can visualize the aligned reads in Geneious.  Can you find any problems with the assemblies?
 
 **2. Sequence annotation**
+
 Another thing you could do is annotate the virus contigs.  Geneious is a great tool for doing things like finding ORFs in sequences and adding annotations, that can then be exported in GenBank format.
 
 **3. Assemble the entire datasets**
