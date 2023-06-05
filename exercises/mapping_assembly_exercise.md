@@ -146,7 +146,7 @@ First, let's transfer the bowtie index from the HDD to your working folder:
 cd ~/gdw_working
 
 # copy the boa constrictor full genome bowtie index to the pwd.  Note the . at the end of the command line
-cp /Users/gdw/Desktop/GDW_Data/Mark/boa_constrictor_bt_index* .
+cp /Users/gdw2023/Desktop/GDW_Data/Mark/boa_constrictor_bt_index* .
 ```
 
 Now, we'll run bowtie2 to map reads to the _entire_ boa constrictor genome.  This time we'll run bowtie2 a little differently:
