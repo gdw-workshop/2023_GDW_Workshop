@@ -208,7 +208,7 @@ First, we need to *find* the boa constrictor genome.  As usual, there are few wa
 
 1. navigate through the NCBI [Taxonomy database](https://www.ncbi.nlm.nih.gov/taxonomy/)
 2. navigate through the NCBI [Genome database](https://www.ncbi.nlm.nih.gov/genome/)
-3. navigate through another genome database, like [Ensembl](http://www.ensembl.org/index.html) or [UCSC](https://genome.ucsc.edu/) 
+3. navigate through another genome database, like [Ensembl](https://www.ensembl.org/index.html) or [UCSC](https://genome.ucsc.edu/) 
 4. google 'boa constrictor genome sequence'  (not a terrible way to do it)
 
 - Let's choose option 1, and go through the NCBI Taxonomy database.  Navigate to https://www.ncbi.nlm.nih.gov/taxonomy/
@@ -219,7 +219,7 @@ You can see at this page that there is no boa constrictor genome in NCBI.  That'
 
 There is, however, a sequence for the boa constrictor [*mitochondrial* genome](https://www.ncbi.nlm.nih.gov/nuccore/NC_007398.1) in NCBI.  We will first map to this mitochondrial DNA sequence.
 
-We need to download this sequence.  We'll do this through the browser.  In the upper right hand corner of the page, note the 'Send' drop down 
+We need to download this sequence.  We'll do this through the browser.  In the upper right hand corner of the page, note the 'Send To' drop down 
 
 - Click Send To->Complete Record->File->Format[FASTA]->Create File
 
@@ -261,7 +261,7 @@ Hint: press `space` to advance a page in less and press `q` to exit
 
 
 We want these files in Geneious too.  Drag them into Geneious:  
- - Open Geneious
+ - Open Geneious Prime
  - Create a new folder in Geneious 
  - Drag and drop these files into Geneious
 
@@ -292,7 +292,7 @@ https://www.ncbi.nlm.nih.gov/genome/
 Search for `Chlamydia psittaci`. This will take you to the genome overview page for this organism. 
 
 You will notice a number of things on this overview page: 
-- There are actually 71 _C. psittaci_ genome assemblies.  One of these has been designated a "Representative genome".  We'll download this one. 
+- There are actually 98 _C. psittaci_ genome assemblies.  One of these has been designated a "Representative genome".  We'll download this one. 
 - There are a number of paths to the actual genome sequence(s).  One simple path is at the top of the page, where there are links to "Download sequences in FASTA format."  
    - Hover over the link to download the genome sequence in FASTA format.  Note that this link points to this URL:
 
