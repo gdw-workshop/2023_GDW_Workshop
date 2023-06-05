@@ -86,7 +86,7 @@ Time | Activity
 **13:15-15:15** | [Genome Assembly Exercise](./exercises/mapping_assembly_exercise.md), Mark Stenglein and Bob Fitak
 **15:15-15:35** | Coffee Break
 **15:35-16:15** | Genome Assembly Exercise, continued: possibly intro to nf-core pipelines?
-**16:15-16:35** | [Introduction to Metagenomics and Disease](./lectures/Stenglein_metagenomics_lecture.pdf), Mark Stenglein 
+**16:15-16:35** | [Introduction to Metagenomics and Disease](./lectures/Stenglein_metagenomics_lecture.pdf), Mark Stenglein <br>[putative guanarito virus sequence](./resources/putative_guanarito_virus_sequences.fasta)
 **16:35-17:00** | Group projects time
 **17:00-19:00** | Free time and dinner
 **19:15-21:00** | Optional computer time with instructors
