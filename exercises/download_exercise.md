@@ -214,21 +214,18 @@ First, we need to *find* the boa constrictor genome.  As usual, there are few wa
 - Let's choose option 1, and go through the NCBI Taxonomy database.  Navigate to https://www.ncbi.nlm.nih.gov/taxonomy/
    - Search for `boa constrictor`.  
    - Click on Boa constrictor link, then click the Boa constrictor link again
-   - You should see a table in the upper right corner showing linked records in various NCBI (Entrez) databases.
-   - Click on the `Genome (1)` link in that table to go to the boa constrictor records in the NCBI Genome database 
 
-   - The linked page should say 'No items found', because the boa constrictor genome isn't actually in the NCBI Genome database<sup>[1](#myfootnote1)</sup>.  However, there is a mitochondrial genome. Let's download that.
-   - Click on "See also 1 organelle- and plasmid-only records matching your search"
-   - In the Replicon Info table, note the link to the boa constrictor mtDNA genome sequence (NC_007398.1)
-   - Click on this 'NC_007398.1' RefSeq link
+You can see at this page that there is no boa constrictor genome in NCBI.  That's so sad!  :anguished: 
 
-Now we need to download the sequence.  We'll do this through the browser.  In the upper right hand corner of the page, note the 'Send' drop down 
+There is, however, a sequence for the boa constrictor [*mitochondrial* genome](https://www.ncbi.nlm.nih.gov/nuccore/NC_007398.1) in NCBI.  We will first map to this mitochondrial DNA sequence.
 
-- Click Send->Complete Record->File->Format[FASTA]->Create File
+We need to download this sequence.  We'll do this through the browser.  In the upper right hand corner of the page, note the 'Send' drop down 
 
-You should have downloaded a fasta file of ~19 kb, named sequence.fasta, or something like that.  
+- Click Send To->Complete Record->File->Format[FASTA]->Create File
 
-Now download the sequence in GenBank format too.  Note that this file is larger (~42 kb), because it contains annotation as well as the actual sequence.
+This should downloaded a fasta file of ~19 kb, named `sequence.fasta`, or something like that.  
+
+Now, download the sequence in GenBank format too.  Note that this file is larger (~42 kb), because it contains annotation as well as the actual sequence.
 
 Note that the downloaded files have unhelpful names: `sequence.fasta` and `sequence.gb` or similar.  Move these files into your gdw_working folder and rename them something useful:
 
@@ -267,6 +264,8 @@ We want these files in Geneious too.  Drag them into Geneious:
  - Open Geneious
  - Create a new folder in Geneious 
  - Drag and drop these files into Geneious
+
+(You can also download the sequences directly into Geneious using the Geneious NCBI interface).
 
 
 ### Additional, time-permitting exercises 
