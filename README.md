@@ -99,18 +99,17 @@ Time | Activity
 --- | ---
 <img width=150/> | <img width=600/>
 **07:00–08:00** | Breakfast
-**08:15-08:25** | Step 3: Comparing Differences Within and Between Genomes, Jill Pecon-Slattery  [Slides](./lectures/Day3_Intro.pdf)
-**08:25-09:00** | [Best Practices in Multiple Sequence Alignments](./lectures/Alignments_GDW2023_Lecture.pdf), Jill Pecon-Slattery
-**09:00-09:30** | Alignment Computer Lab: Part 1, Jill Pecon-Slattery [Alignment Exercise Files](./exercises/Alignment_Exercise_2023.zip)
+**08:15-09:30** | Step 3: Comparing Differences Within and Between Genomes, Jill Pecon-Slattery  [Slides](./lectures/Alignments_GDW2023_Lecture.pdf)
+**08:15-09:30** | Best Practices in Multiple Sequence Alignments; [Alignment computer lab](./exercises/Alignment_Exercise_2023.zip), Jill Pecon-Slattery
 **09:30-10:00** | Flash Talk, Karen Fox, Colorado Parks and Wildlife
-**10:00-10:20** | Coffee Break and Meet Invited Speakers
-**10:20-11:30** | Alignment computer lab: Part 2, Jill Pecon-Slattery [exercise files](./exercises/Alignment_Exercise_2023.zip)
-**11:30-12:15** | Group projects time
+**10:00-10:20** | Coffee Break and Meet Invited Speaker
+**10:20-11:30** | Alignment computer lab: Part 2, Jill Pecon-Slattery [Alignment computer lab](./exercises/Alignment_Exercise_2023.zip)
+**11:30-12:15** | Group Projects time
 **12:15-13:15** | Lunch Provided Onsite
-**13:15-15:15** | Phylogenomic Reconstruction Lab Using PAUP [MCRobot](https://plewis.github.io/applets/mcmc-robot/) demo, Jill Pecon-Slattery [IQ Tree Dataset](./exercises/IQRuns.zip)
+**13:15-15:15** | Phylogenomic Reconstruction Lecture and Lab: [IQ Tree Dataset](./exercises/IQRuns.zip), Jill Pecon-Slattery [IQ Tree Dataset](./exercises/IQRuns.zip)
 **15:15-15:35** | Coffee Break
-**15:35-16:30** | Phylogenomic Reconstruction Lab: [MrBayes](./exercises/MrBayesTutorial-2023.md), Jill Pecon-Slattery
-**16:30-17:00** | Molecular clocks, Jill Pecon-Slattery
+**15:35-16:30** | Phylogenomic Reconstruction Lecture and Lab: [MrBayes Tutorial](./exercises/MrBayesTutorial-2023.md), Jill Pecon-Slattery
+**16:30-17:00** | Molecular Clocks & Selection (Part1), Jill Pecon-Slattery
 **17:00-19:30** | Free time and dinner
 **19:30-20:30** | Plenary Speaker, Louise Moncla, University of Pennsylvania
 **20:30-22:00** | Social Hour with Invited Speaker
