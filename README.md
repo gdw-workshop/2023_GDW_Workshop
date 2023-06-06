@@ -92,7 +92,7 @@ Time | Activity
 **19:15-21:00** | Optional computer time with instructors
 
 
-### Wedendsday June 7, 2023. Day 3: Comparative Genomic and Phylogenomic Inferences
+### Wednesday June 7, 2023. Day 3: Comparative Genomic and Phylogenomic Inferences
 Smith Alumni Center 
 
 Time | Activity
