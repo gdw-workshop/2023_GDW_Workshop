@@ -107,7 +107,7 @@ Time | Activity
 **10:20-11:30** | Alignment computer lab: Part 2, Jill Pecon-Slattery [exercise files](./exercises/Alignment_Exercise.zip)
 **11:30-12:15** | Group projects time
 **12:15-13:15** | Lunch Provided Onsite
-**13:15-15:15** | Phylogenomic Reconstruction Lab Using PAUP [MCRobot](https://phylogeny.uconn.edu/mcmc-robot/#) demo, Jill Pecon-Slattery [exercise files](./exercises/PAUP_Exercise.zip)
+**13:15-15:15** | Phylogenomic Reconstruction Lab Using PAUP [MCRobot](https://plewis.github.io/applets/mcmc-robot/) demo, Jill Pecon-Slattery [exercise files](./exercises/PAUP_Exercise.zip)
 **15:15-15:35** | Coffee Break
 **15:35-16:30** | Phylogenomic Reconstruction Lab: [MrBayes](./exercises/MrBayesTutorial-2023.md), Jill Pecon-Slattery
 **16:30-17:00** | Molecular clocks, Jill Pecon-Slattery
