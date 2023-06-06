@@ -101,7 +101,7 @@ Time | Activity
 **07:00–08:00** | Breakfast
 **08:15-08:25** | Step 3: Comparing Differences Within and Between Genomes, Jill Pecon-Slattery  [Slides](./lectures/Day3_Intro.pdf)
 **08:25-09:00** | [Best Practices in Multiple Sequence Alignments](./lectures/Alignments_GDW2023_Lecture.pdf), Jill Pecon-Slattery
-**09:00-09:30** | Alignment Computer Lab: Part 1, Jill Pecon-Slattery [Instructions](./exercises/Alignment_Exercise_Instructions.pdf)
+**09:00-09:30** | Alignment Computer Lab: Part 1, Jill Pecon-Slattery [Alignment Exercise Files](./exercises/Alignment_Exercise_2023.zip)
 **09:30-10:00** | Flash Talk, Karen Fox, Colorado Parks and Wildlife
 **10:00-10:20** | Coffee Break and Meet Invited Speakers
 **10:20-11:30** | Alignment computer lab: Part 2, Jill Pecon-Slattery [exercise files](./exercises/Alignment_Exercise_2023.zip)
