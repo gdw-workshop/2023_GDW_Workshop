@@ -124,7 +124,7 @@ Time | Activity
 <img width=150/> | <img width=600/>
 **07:00–08:00** | Breakfast
 **08:15-08:25** | Step 5: Genomics of Host-pathogen Interaction
-**08:35-09:30** | Phylodynamics and NextStrain [lecture](./lectures/xxx), Louise Moncla
+**08:35-09:30** | Phylodynamics and NextStrain; [lecture](./lectures/xxx), Louise Moncla
 **09:30-10:00** | Flash Talk, Christie Mayo, CSU
 **10:00-10:20** | Coffee Break and Meet Invited Speaker
 **10:20-12:15** | Nextstrain Lab, Louise Moncla
