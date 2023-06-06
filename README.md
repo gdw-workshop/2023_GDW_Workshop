@@ -131,7 +131,7 @@ Time | Activity
 **10:20-12:15** | BEAST Lectures and Lab, Louise Moncla
 **12:15-13:15** | Lunch Provided Onsite
 **13:15-14:30** | Phylydynamics and NextStrain, Louise Moncla
-**14:30-15:45** | Intro to Selection in Host Genome, lecture and labs, Jill Pecon-Slattery
+**14:30-15:45** | Intro to Selection in Host Genome, lecture and [lab exercise](./exercises/PAML_Exercise_GDW2023.zip), Jill Pecon-Slattery
 **16:00-18:00** | Hike, weather permitting, Lexi Keene
 **17:00-19:00** | Free time and dinner (no evening sessions)
 
