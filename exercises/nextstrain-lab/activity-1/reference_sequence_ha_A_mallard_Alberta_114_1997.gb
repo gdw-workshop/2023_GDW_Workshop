@@ -1,0 +1,115 @@
+LOCUS       CY102236                1740 bp    cRNA    linear   VRL 12-SEP-2013
+DEFINITION  Influenza A virus (A/mallard/Alberta/114/1997(H3N8)) hemagglutinin
+            (HA) gene, complete cds.
+ACCESSION   CY102236
+VERSION     CY102236.1
+KEYWORDS    .
+SOURCE      Influenza A virus (A/mallard/Alberta/114/1997(H3N8))
+  ORGANISM  Influenza A virus (A/mallard/Alberta/114/1997(H3N8))
+            Viruses; Riboviria; Orthornavirae; Negarnaviricota;
+            Polyploviricotina; Insthoviricetes; Articulavirales;
+            Orthomyxoviridae; Alphainfluenzavirus.
+REFERENCE   1  (bases 1 to 1740)
+  AUTHORS   Bahl,J., Krauss,S., Kuhnert,D., Fourment,M., Raven,G., Pryor,S.P.,
+            Niles,L.J., Danner,A., Walker,D., Mendenhall,I.H., Su,Y.C.,
+            Dugan,V.G., Halpin,R.A., Stockwell,T.B., Webby,R.J.,
+            Wentworth,D.E., Drummond,A.J., Smith,G.J. and Webster,R.G.
+  TITLE     Influenza a virus migration and persistence in north american wild
+            birds
+  JOURNAL   PLoS Pathog. 9 (8), E1003570 (2013)
+   PUBMED   24009503
+  REMARK    Publication Status: Online-Only
+REFERENCE   2  (bases 1 to 1740)
+  AUTHORS   Wentworth,D.E., Dugan,V., Halpin,R., Lin,X., Bera,J., Ghedin,E.,
+            Fedorova,N., Overton,L., Tsitrin,T., Stockwell,T., Amedeo,P.,
+            Bishop,B., Chen,H., Edworthy,P., Gupta,N., Katzel,D., Li,K.,
+            Schobel,S., Shrivastava,S., Thovarai,V., Wang,S., Bahl,J.,
+            Krauss,S., Webster,R.G., Webby,R.J., Smith,G.J., Bao,Y.,
+            Sanders,R., Dernovoy,D., Kiryutin,B., Lipman,D.J. and Tatusova,T.
+  TITLE     The NIAID Influenza Genome Sequencing Project
+  JOURNAL   Unpublished
+REFERENCE   3  (bases 1 to 1740)
+  CONSRTM   The NIAID Influenza Genome Sequencing Consortium
+  TITLE     Direct Submission
+  JOURNAL   Submitted (16-NOV-2011) on behalf of JCVI/St. Jude Children's
+            Research Hospital/NCBI, National Center for Biotechnology
+            Information, NIH, Bethesda, MD 20894, USA
+COMMENT     This work was supported by the National Institute of Allergy and
+            Infectious Diseases (NIAID), Genome Sequencing Centers for
+            Infectious Diseases (GSCID) program.
+FEATURES             Location/Qualifiers
+     source          1..1740
+                     /organism="Influenza A virus
+                     (A/mallard/Alberta/114/1997(H3N8))"
+                     /mol_type="viral cRNA"
+                     /strain="A/mallard/Alberta/114/1997"
+                     /serotype="H3N8"
+                     /host="mallard; gender M; age hatch year"
+                     /bio_material="CEIRS#155033#"
+                     /db_xref="taxon:1093427"
+                     /segment="4"
+                     /lab_host="P2 passage(s)"
+                     /country="Canada: Alberta"
+                     /collection_date="05-Aug-1997"
+                     /note="Sample provided by Canadian wildlife service"
+     misc_feature    1..1740
+                     /db_xref="IRD:NIGSP_CEIRS_SJC001_JBC_00123.HA"
+     gene            18..1718
+                     /gene="HA"
+     CDS             18..1718
+                     /gene="HA"
+                     /function="receptor binding and fusion protein"
+                     /codon_start=1
+                     /product="hemagglutinin"
+                     /protein_id="AET76492.1"
+                     /translation="MKTIIILSYLFCLALGQDYSENNNSTATLCLGHHAVPNGTIVKT
+                     ITDDQIEVTNATELVQSSSTGKICNNPHRILDGRDCTLIDALLGDPHCDVFQDETWDL
+                     YVERSSAFSNCYPYDVPDYASLRSLVASSGTLEFITEGFTWTGVTQNGGSNACKRGPA
+                     SGFFSRLNWLTKSGSAYPVLNVTMPNNDNFDKLYVWGVHHPSTNQEQTNLYVQASGRV
+                     TVSTRRSQQTIIPNIGSRPWVRGQSGRISIYWTIVKPGDVLVINSNGNLIAPRGYFKM
+                     RTGKSSIMRSDAPIDTCISECITPNGSIPNDKPFQNVNKITYGACPKYVKQSTLKLAT
+                     GMRNVPEKQTRGLFGAIAGFIENGWEGMIDGWYGFRHQNSEGTGQAADLKSTQAAIDQ
+                     INGKLNRVIEKTNEKFHQIEKEFSEVEGRIQDLEKYVEDTKIDLWSYNAELLVALENQ
+                     HTIDLTDSEMNKLFEKTRRQLRENAEDMGNGCFKIYHKCDNACIESIRNGTYDHDIYR
+                     DEALNNRFQIKGVELKSGYKDWILWISFAISCFLLCVVLLGFIMWACQRGNIRCNICI
+                     "
+     sig_peptide     18..65
+                     /gene="HA"
+     mat_peptide     66..1052
+                     /gene="HA"
+                     /product="HA1"
+     mat_peptide     1053..1715
+                     /gene="HA"
+                     /product="HA2"
+ORIGIN      
+        1 ggataattct attaatcatg aagaccatca ttattctgag ctatcttttc tgtctggctc
+       61 tcggccaaga ttactcagag aacaacaaca gcactgcaac actgtgcttg ggacatcatg
+      121 cagtaccaaa tgggacaata gtgaagacaa ttacggatga ccaaattgag gtgaccaatg
+      181 ccactgagtt ggtccagagc tcctcaacag ggaaaatatg caacaaccca catagaattc
+      241 ttgatgggag ggactgtaca ctgatagatg ccctgctggg agaccctcac tgtgatgtat
+      301 tccaagatga aacctgggac ctctatgtgg aacgtagcag cgccttcagc aactgctatc
+      361 cctatgatgt accagactat gcatcgctca gatctctagt tgcttcctca gggaccttag
+      421 agttcatcac agaaggattc acctggacag gagtcactca aaatggagga agcaatgcct
+      481 gcaaaagagg gcctgctagt ggtttcttca gcagactaaa ttggctgacc aaatctggaa
+      541 gtgcttaccc agtgttgaat gtaactatgc caaacaatga caactttgat aaattgtatg
+      601 tctggggagt tcatcaccca agcacaaacc aagagcaaac caacctatac gttcaggcat
+      661 caggaagggt aacagtctca actagaagga gccaacaaac cataatccca aatattggat
+      721 ccaggccttg ggtcaggggc caatcaggga ggataagcat ctactggaca atagtgaagc
+      781 caggggatgt actagtaatt aacagtaatg gtaatctgat cgctcctcgg gggtacttca
+      841 aaatgcgcac tggaaaaagc tcaataatga gatcagatgc acctatagac acatgcattt
+      901 ctgagtgcat cactcctaat ggaagtatcc ccaatgacaa accatttcag aatgtaaaca
+      961 agatcactta cggagcatgc cctaagtatg tcaaacagag cactctgaaa ctggcaacag
+     1021 ggatgaggaa tgtgcctgag aaacaaacca ggggtctatt cggtgcaata gcaggattta
+     1081 tagaaaatgg atgggaagga atgatagacg gctggtatgg tttcagacac cagaactctg
+     1141 agggtacagg gcaagctgca gacctaaaaa gcacacaggc agccattgac cagattaatg
+     1201 gaaagttgaa ccgagtaatc gagaaaacaa atgagaagtt tcaccagatt gaaaaggaat
+     1261 tctctgaagt agaaggaaga atccaggacc ttgagaaata tgttgaagac accaagatag
+     1321 atctatggtc ttacaatgca gagcttctgg tagccttgga aaaccagcat acaattgacc
+     1381 tgactgattc tgaaatgaac aaattattcg aaaagacgag acggcaactg agggagaatg
+     1441 ctgaagatat gggcaacggt tgcttcaaaa tataccacaa atgtgacaac gcatgtatag
+     1501 agtcaatcag gaacgggacc tatgatcatg acatatacag ggatgaagca ttaaacaacc
+     1561 gattccaaat caagggtgta gagctaaaat ctgggtacaa agactggatc ttatggattt
+     1621 cctttgccat atcatgcttt ttgctttgtg ttgtcctact ggggttcatt atgtgggcct
+     1681 gccaaagagg caacattaga tgcaacattt gcatttgagt atattggtag ttaaaaacac
+//
+
