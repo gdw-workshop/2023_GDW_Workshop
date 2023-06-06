@@ -100,7 +100,7 @@ Time | Activity
 <img width=150/> | <img width=600/>
 **07:00–08:00** | Breakfast
 **08:15-08:25** | Step 3: Comparing Differences Within and Between Genomes, Jill Pecon-Slattery  [Slides](./lectures/Day3_Intro.pdf)
-**08:25-09:00** | [Best Practices in Multiple Sequence Alignments](./lectures/Alignments_GDW2023_Lecture.pdf) and [IQ Tree DAtaset](./exercises/IQRuns.zip), Jill Pecon-Slattery
+**08:25-09:00** | [Best Practices in Multiple Sequence Alignments](./lectures/Alignments_GDW2023_Lecture.pdf) and [IQ Tree Dataset](./exercises/IQRuns.zip), Jill Pecon-Slattery
 **09:00-09:30** | Alignment Computer Lab: Part 1, Jill Pecon-Slattery [Instructions](./exercises/Alignment_Exercise_Instructions.pdf)
 **09:30-10:00** | Flash Talk, Karen Fox, Colorado Parks and Wildlife
 **10:00-10:20** | Coffee Break and Meet Invited Speakers
