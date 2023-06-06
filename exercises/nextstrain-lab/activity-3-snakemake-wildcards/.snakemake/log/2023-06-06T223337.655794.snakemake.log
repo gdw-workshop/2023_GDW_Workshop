@@ -1,0 +1,88 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 6
+Rules claiming more threads will be scaled down.
+Job stats:
+job          count    min threads    max threads
+---------  -------  -------------  -------------
+align            8              1              1
+all              1              1              1
+ancestral        8              1              1
+export           8              1              1
+filter           8              1              1
+parse            8              1              1
+refine           8              1              1
+traits           8              1              1
+translate        8              1              1
+tree             8              1              1
+total           73              1              1
+
+Select jobs to execute...
+
+[Tue Jun  6 22:33:37 2023]
+Job 33: Parsing fasta into sequences and metadata
+Reason: Missing output files: results/metadata_na.tsv, results/sequences_na.fasta
+
+
+        augur parse             --sequences data/h3nx_na.fa             --output-sequences results/sequences_na.fasta             --output-metadata results/metadata_na.tsv             --fields strain accession subtype date host country region species broad order             --prettify-fields country host species region order
+        
+
+[Tue Jun  6 22:33:38 2023]
+Job 24: Parsing fasta into sequences and metadata
+Reason: Missing output files: results/metadata_pb1.tsv, results/sequences_pb1.fasta
+
+
+        augur parse             --sequences data/h3nx_pb1.fa             --output-sequences results/sequences_pb1.fasta             --output-metadata results/metadata_pb1.tsv             --fields strain accession subtype date host country region species broad order             --prettify-fields country host species region order
+        
+
+[Tue Jun  6 22:33:38 2023]
+Job 15: Parsing fasta into sequences and metadata
+Reason: Missing output files: results/metadata_pb2.tsv, results/sequences_pb2.fasta
+
+
+        augur parse             --sequences data/h3nx_pb2.fa             --output-sequences results/sequences_pb2.fasta             --output-metadata results/metadata_pb2.tsv             --fields strain accession subtype date host country region species broad order             --prettify-fields country host species region order
+        
+
+[Tue Jun  6 22:33:38 2023]
+Job 6: Parsing fasta into sequences and metadata
+Reason: Missing output files: results/metadata_ha.tsv, results/sequences_ha.fasta
+
+
+        augur parse             --sequences data/h3nx_ha.fa             --output-sequences results/sequences_ha.fasta             --output-metadata results/metadata_ha.tsv             --fields strain accession subtype date host country region species broad order             --prettify-fields country host species region order
+        
+
+[Tue Jun  6 22:33:38 2023]
+Job 51: Parsing fasta into sequences and metadata
+Reason: Missing output files: results/sequences_pa.fasta, results/metadata_pa.tsv
+
+
+        augur parse             --sequences data/h3nx_pa.fa             --output-sequences results/sequences_pa.fasta             --output-metadata results/metadata_pa.tsv             --fields strain accession subtype date host country region species broad order             --prettify-fields country host species region order
+        
+
+[Tue Jun  6 22:33:38 2023]
+Job 42: Parsing fasta into sequences and metadata
+Reason: Missing output files: results/sequences_np.fasta, results/metadata_np.tsv
+
+
+        augur parse             --sequences data/h3nx_np.fa             --output-sequences results/sequences_np.fasta             --output-metadata results/metadata_np.tsv             --fields strain accession subtype date host country region species broad order             --prettify-fields country host species region order
+        
+[Tue Jun  6 22:33:41 2023]
+Finished job 42.
+1 of 73 steps (1%) done
+Select jobs to execute...
+
+[Tue Jun  6 22:33:41 2023]
+Job 41: 
+        Filtering to
+          - 2 sequence(s) per host subtype region year
+          - excluding strains in config/exclude_strains.txt
+          - samples with missing region and country metadata
+          - excluding strains prior to 1900
+        
+Reason: Missing output files: results/filtered_np.fasta; Input files updated by another job: results/sequences_np.fasta, results/metadata_np.tsv
+
+RuleException in rule filter in file /nextstrain/build/Snakefile, line 79:
+AttributeError: 'InputFiles' object has no attribute 'include', when formatting the following:
+
+        augur filter             --sequences {input.sequences}             --metadata {input.metadata}             --exclude {input.exclude}             --include {input.include}             --output {output.sequences}             --group-by {params.group_by}             --sequences-per-group {params.sequences_per_group}             --min-date {params.min_date}             --exclude-where {params.exclude_where}             --min-length {params.min_length}             --non-nucleotide
+        

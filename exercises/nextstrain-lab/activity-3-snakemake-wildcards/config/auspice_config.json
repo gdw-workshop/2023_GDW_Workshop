@@ -1,0 +1,58 @@
+{
+  "title": "Real-time tracking of influenza A/H3Nx virus evolution",
+  "maintainers": [
+    {"name": "you!", "url": ""}
+  ],
+  "build_url": "",
+  "colorings": [
+    {
+      "key": "gt",
+      "title": "Genotype",
+      "type": "categorical"
+    },
+    {
+      "key": "num_date",
+      "title": "Date",
+      "type": "continuous"
+    },
+    {
+      "key": "country",
+      "title": "Country",
+      "type": "categorical"
+    },
+    {
+      "key": "region",
+      "title": "Region",
+      "type": "categorical"
+    },
+    {
+      "key": "host",
+      "title": "Host",
+      "type": "categorical"
+    },
+    {
+      "key": "order",
+      "title": "Order",
+      "type": "categorical"
+    },
+    {
+      "key": "subtype",
+      "title": "Subtype",
+      "type": "categorical"
+    }
+  ],
+  "geo_resolutions": [
+    "region",
+    "country"
+  ],
+  "display_defaults": {
+    "map_triplicate": true,
+    "color_by": "host"
+  },
+  "filters": [
+    "host",
+    "region",
+    "country",
+    "subtype"
+  ]
+}

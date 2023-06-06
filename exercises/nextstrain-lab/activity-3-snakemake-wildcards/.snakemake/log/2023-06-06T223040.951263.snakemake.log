@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule filter in file /nextstrain/build/Snakefile, line 79:
+Missing input files for rule filter:
+    output: results/filtered_ha.fasta
+    wildcards: segment=ha
+    affected files:
+        config/dropped_strains.txt

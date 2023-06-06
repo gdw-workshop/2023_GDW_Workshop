@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule align in file /nextstrain/build/Snakefile, line 117:
+Missing input files for rule align:
+    output: results/aligned_ha.fasta
+    wildcards: segment=ha
+    affected files:
+        config/references/ha.gb
