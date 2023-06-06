@@ -104,7 +104,7 @@ Time | Activity
 **09:00-09:30** | Alignment Computer Lab: Part 1, Jill Pecon-Slattery [Instructions](./exercises/Alignment_Exercise_Instructions.pdf)
 **09:30-10:00** | Flash Talk, Karen Fox, Colorado Parks and Wildlife
 **10:00-10:20** | Coffee Break and Meet Invited Speakers
-**10:20-11:30** | Alignment computer lab: Part 2, Jill Pecon-Slattery [exercise files](./exercises/Alignment_Exercise.zip)
+**10:20-11:30** | Alignment computer lab: Part 2, Jill Pecon-Slattery [exercise files](./exercises/Alignment_Exercise_2023.zip)
 **11:30-12:15** | Group projects time
 **12:15-13:15** | Lunch Provided Onsite
 **13:15-15:15** | Phylogenomic Reconstruction Lab Using PAUP [MCRobot](https://plewis.github.io/applets/mcmc-robot/) demo, Jill Pecon-Slattery [exercise files](./exercises/PAUP_Exercise.zip)
