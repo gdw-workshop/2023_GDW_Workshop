@@ -125,12 +125,12 @@ Time | Activity
 <img width=150/> | <img width=600/>
 **07:00–08:00** | Breakfast
 **08:15-08:25** | Step 5: Genomics of Host-pathogen Interaction
-**08:35-09:30** | Phylodynamics and NextStrain; [lecture](./lectures/xxx), Louise Moncla
+**08:35-09:30** | Phylodynamics and NextStrain; [lecture](./lectures/Moncla_Phylodynamics.pdf), Louise Moncla
 **09:30-10:00** | Flash Talk, Christie Mayo, CSU
 **10:00-10:20** | Coffee Break and Meet Invited Speaker
-**10:20-12:15** | Nextstrain Lab, Louise Moncla
+**10:20-12:15** | [Nextstrain Lab](./exercises/nextstrain-lab/), Louise Moncla
 **12:15-13:15** | Lunch Provided Onsite
-**13:15-14:30** | BEAST Lecture and Lab, Louise Moncla
+**13:15-14:30** | BEAST [Lecture](./lectures/Moncla_BEAST.pdf) and [Lab](./exercises/BEAST-lab/), Louise Moncla
 **14:30-15:45** | Selection in Host Genomes (part 2); [PAML lab exercise](./exercises/PAML_Exercise_GDW2023.zip), Jill Pecon-Slattery
 **16:00-18:00** | Hike, weather permitting, Lexi Keene
 **17:00-19:00** | Free time and dinner (no evening session)
