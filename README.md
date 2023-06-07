@@ -106,7 +106,7 @@ Time | Activity
 **10:20-11:30** | Alignment computer lab: Part 2, Jill Pecon-Slattery [Alignment computer lab](./exercises/Alignment_Exercise_2023.zip)
 **11:30-12:15** | Group Projects time
 **12:15-13:15** | Lunch Provided Onsite
-**13:15-15:15** | Phylogenomic Reconstruction [Lecture](./lectures/Introduction to Phylogenetic Methods_2023Short.pdf) and Lab: [IQ Tree Dataset](./exercises/IQRuns.zip), Jill Pecon-Slattery
+**13:15-15:15** | Phylogenomic Reconstruction [Lecture](./lectures/Introduction_to_Phylogenetic_Methods_2023Short.pdf) and Lab: [IQ Tree Dataset](./exercises/IQRuns.zip), Jill Pecon-Slattery
 **15:15-15:35** | Coffee Break
 **15:35-16:30** | Phylogenomic Reconstruction Lecture and Lab,, Jill Pecon-Slattery
 **16:30-17:00** | Molecular Clocks & Selection (Part 1), Jill Pecon-Slattery
