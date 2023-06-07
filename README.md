@@ -108,7 +108,8 @@ Time | Activity
 **12:15-13:15** | Lunch Provided Onsite
 **13:15-15:15** | Phylogenomic Reconstruction [Lecture](./lectures/Introduction_to_Phylogenetic_Methods_2023Short.pdf) and Lab: [IQ Tree Dataset](./exercises/IQRuns.zip), Jill Pecon-Slattery
 **15:15-15:35** | Coffee Break
-**15:35-16:30** | Phylogenomic Reconstruction Lecture and Lab,, Jill Pecon-Slattery
+**15:35-16:00** | Too hot (or cold) to handle? MCMC in Phylogenetics: [MCMCRobot](https://plewis.github.io/applets/mcmc-robot/), Bob Fitak
+**16:00-16:30** | Phylogenomic Reconstruction Lecture and Lab, Alex Ochoa
 **16:30-17:00** | Molecular Clocks & Selection (Part 1), Jill Pecon-Slattery
 **17:00-19:30** | Free time and dinner
 **19:30-20:30** | Plenary Speaker, Louise Moncla, University of Pennsylvania
