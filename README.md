@@ -99,14 +99,14 @@ Time | Activity
 --- | ---
 <img width=150/> | <img width=600/>
 **07:00–08:00** | Breakfast
-**08:15-09:30** | Step 3: Comparing Differences Within and Between Genomes, Jill Pecon-Slattery  [Slides](./lectures/Alignments_GDW2023_Lecture.pdf)
+**08:15-09:30** | [Introduction Slides](./lectures/Day3_Intro.pdf): Step 3: Comparing Differences Within and Between Genomes, Jill Pecon-Slattery, [Slides](./lectures/Alignment_Lecture_2023.pdf)
 **08:15-09:30** | Best Practices in Multiple Sequence Alignments; [Alignment computer lab](./exercises/Alignment_Exercise_2023.zip), Jill Pecon-Slattery
 **09:30-10:00** | Flash Talk, Karen Fox, Colorado Parks and Wildlife
 **10:00-10:20** | Coffee Break and Meet Invited Speaker
 **10:20-11:30** | Alignment computer lab: Part 2, Jill Pecon-Slattery [Alignment computer lab](./exercises/Alignment_Exercise_2023.zip)
 **11:30-12:15** | Group Projects time
 **12:15-13:15** | Lunch Provided Onsite
-**13:15-15:15** | Phylogenomic Reconstruction Lecture and Lab: [IQ Tree Dataset](./exercises/IQRuns.zip), Jill Pecon-Slattery
+**13:15-15:15** | Phylogenomic Reconstruction [Lecture](./lectures/Introduction to Phylogenetic Methods_2023Short.pdf) and Lab: [IQ Tree Dataset](./exercises/IQRuns.zip), Jill Pecon-Slattery
 **15:15-15:35** | Coffee Break
 **15:35-16:30** | Phylogenomic Reconstruction Lecture and Lab,, Jill Pecon-Slattery
 **16:30-17:00** | Molecular Clocks & Selection (Part 1), Jill Pecon-Slattery
@@ -130,7 +130,7 @@ Time | Activity
 **10:20-12:15** | Nextstrain Lab, Louise Moncla
 **12:15-13:15** | Lunch Provided Onsite
 **13:15-14:30** | BEAST Lecture and Lab, Louise Moncla
-**14:30-15:45** | Selection in Host Genome (part 2); [PAML lab exercise](./exercises/PAML_Exercise_GDW2023.zip), Jill Pecon-Slattery
+**14:30-15:45** | Selection in Host Genomes (part 2); [PAML lab exercise](./exercises/PAML_Exercise_GDW2023.zip), Jill Pecon-Slattery
 **16:00-18:00** | Hike, weather permitting, Lexi Keene
 **17:00-19:00** | Free time and dinner (no evening session)
 
