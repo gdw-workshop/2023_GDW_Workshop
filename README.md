@@ -149,7 +149,7 @@ Time | Activity
 **10:00-10:20** | Coffee Break and Meet Invited Speaker
 **10:20-11:00** | Population Genomics 101: Genetic Structure, Selection, and Mutation Load, Alex Ochoa
 **11:00-12:15** | Lectures and Labs Population Genomics (Part 1), Alex Ochoa
-**12:15      ** | Group Photo!
+**12:15** | Group Photo!
 **12:15-13:15** | Lunch Provided Onsite / Group Discussions
 **13:15-14:00** | Special presentation, Bob Fitak
 **14:00-15:15** | Lectures and Labs Population Genomics (Part 2), Alex Ochoa
