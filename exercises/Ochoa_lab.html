@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Untitled</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Population Genomics Lab</h1>
+
+<h3 id="toc_1">Young scientists!  The order of the universe has been altered by a mysterious virus attacking populations of Wookies, an intergalactic endangered species.</h3>
+
+<p><img src="https://ik.imagekit.io/robynlovescake/wp-content/uploads/2019/09/278AD2CF-1344-449C-BE81-5D0BA90628B7-915x1024.jpeg" alt=""></p>
+
+<h3 id="toc_2">Your mission: Obtain different population genomics metrics from the three surviving populations of Wookies (and a population of a closely related species) to determine the demographic/evolutionary causes enabling the proliferation of this mysterious virus.</h3>
+
+<h3 id="toc_3">Throughout these exercises, we will be using the following data as input:</h3>
+
+<ul>
+<li><p>all.vcf - a VCF file containing ~53,000 SNPs across the three populations of Wookies (defined as P1, P2, P3) and one population from a closely related species (defined as OUT).</p></li>
+<li><p>all.unlinked.vcf - a VCF file containing ~7,000 unlinked SNPs across the three populations of Wookies (defined as P1, P2, P3) and one population from a closely related species (defined as OUT).</p></li>
+<li><p>pops.unlinked.vcf - a VCF file containing ~1,100 SNPs across the three populations of Wookies (defined as P1, P2, P3).</p></li>
+<li><p>pops.unlinked.beagle.gz - a compressed file containing genotype likelihoods from ~1,100 unlinked SNPs across the three populations of Wookies (very convenient for low coverage data).</p></li>
+<li><p>all.K1_5.replicates.log - a file containing log likelihood data from <em>K</em> = 1-5 replicates.</p></li>
+</ul>
+
+<h3 id="toc_4">Also, we will be using different programs for the exercises:</h3>
+
+<ul>
+<li><p>VCFtools: <a href="https://vcftools.github.io/man_latest.html">https://vcftools.github.io/man_latest.html</a></p></li>
+<li><p>PLINK: <a href="https://www.cog-genomics.org/plink/2.0/">https://www.cog-genomics.org/plink/2.0/</a></p></li>
+<li><p>NGSadmix: <a href="http://www.popgen.dk/software/index.php/NgsAdmix">http://www.popgen.dk/software/index.php/NgsAdmix</a></p></li>
+</ul>
+
+<h1 id="toc_5">Part 1</h1>
+
+<h2 id="toc_6">01. Observed Heterozygosity</h2>
+
+<h4 id="toc_7">Move to the working directory:</h4>
+
+<div><pre><code class="language-bash">cd ~/Desktop/GDW_Data/Alex/popgen/01.HE</code></pre></div>
+
+<h4 id="toc_8">Use VCFtools and the <em>all.vcf</em> file to count the number of HOMOZYGOUS genotypes per sample:</h4>
+
+<div><pre><code class="language-bash">vcftools --vcf all.vcf --het --out all</code></pre></div>
+
+<h4 id="toc_9">This process created a tab-delimited file called <em>all.het</em>, which can be visualized by typing:</h4>
+
+<div><pre><code class="language-bash">cat all.het</code></pre></div>
+
+<h4 id="toc_10">The <em>all.het</em> file contains five columns defined by a header (the first line of the file).  For simplicity, we will focus on three columns:</h4>
+
+<ul>
+<li>Column 1 - sample labels</li>
+<li>Column 2 - counts of observed HOMOZYGOUS genotypes per sample</li>
+<li>Column 4 - total counts of genotypes (homozygous and heterozygous) per sample</li>
+</ul>
+
+<h4 id="toc_11">Next, we will add an &quot;observed heterozygosity&quot; column to the header by creating a new file called <em>header.het</em>:</h4>
+
+<div><pre><code class="language-bash">grep &quot;INDV&quot; all.het | sed &#39;s/F/F\tO(HET)/g&#39; &gt; header.het</code></pre></div>
+
+<h4 id="toc_12">We will then create a file called <em>obsHet.txt</em>, which will contain individual &quot;observed heterozygosity&quot; metrics on the last column (Column 6):</h4>
+
+<div><pre><code class="language-bash">grep -v &quot;INDV&quot; all.het | awk -v OFS=&#39;\t&#39; &#39;{ print $1, $2, $3, $4, $5, 1-($2/$4) }&#39; | cat header.het - &gt; obsHet.txt</code></pre></div>
+
+<h4 id="toc_13">You can visualize the <em>obsHet.txt</em> file by typing:</h4>
+
+<div><pre><code class="language-bash">cat obsHet.txt</code></pre></div>
+
+<h4 id="toc_14">How is the <em>obsHet.txt</em> file different from the <em>all.het</em> file?</h4>
+
+<h4 id="toc_15">Finally, we will obtain &quot;mean observed heterozygosity&quot; metrics by averaging individual &quot;observed heterozygosity&quot; metrics from each population:</h4>
+
+<div><pre><code class="language-bash">grep &quot;OUT&quot; obsHet.txt | awk &#39;{ total += $6 } END { print total/NR }&#39; &gt; OUT.obsHet.mean.txt
+grep &quot;P1&quot; obsHet.txt | awk &#39;{ total += $6 } END { print total/NR }&#39; &gt; P1.obsHet.mean.txt
+grep &quot;P2&quot; obsHet.txt | awk &#39;{ total += $6 } END { print total/NR }&#39; &gt; P2.obsHet.mean.txt
+grep &quot;P3&quot; obsHet.txt | awk &#39;{ total += $6 } END { print total/NR }&#39; &gt; P3.obsHet.mean.txt</code></pre></div>
+
+<h4 id="toc_16">This process created four files (one from each population) with *.obsHet.mean.txt extensions. Type the following command line to visualize &quot;mean observed heterozygosity&quot; values from each population:</h4>
+
+<div><pre><code class="language-bash">head *.obsHet.mean.txt</code></pre></div>
+
+<h4 id="toc_17">Which populations would you say have high/low genetic diversities?  On what basis?</h4>
+
+<h2 id="toc_18">02. Tajima&#39;s <em>D</em></h2>
+
+<h4 id="toc_19">Move to the working directory:</h4>
+
+<div><pre><code class="language-bash">cd ~/Desktop/GDW_Data/Alex/popgen/02.TajimaD</code></pre></div>
+
+<h4 id="toc_20">Next, we will create four population vcf files by typing:</h4>
+
+<div><pre><code class="language-bash">cut -f 1-9,10-14 all.vcf &gt; OUT.vcf
+cut -f 1-9,15-19 all.vcf &gt; P1.vcf
+cut -f 1-9,20-24 all.vcf &gt; P2.vcf
+cut -f 1-9,25-29 all.vcf &gt; P3.vcf</code></pre></div>
+
+<h4 id="toc_21">Using VCFtools, we will now obtain <em>D</em> statistics across 100-Kb windows for each population:</h4>
+
+<div><pre><code class="language-bash">vcftools --vcf OUT.vcf --TajimaD 100000 --out OUT
+vcftools --vcf P1.vcf --TajimaD 100000 --out P1
+vcftools --vcf P2.vcf --TajimaD 100000 --out P2
+vcftools --vcf P3.vcf --TajimaD 100000 --out P3</code></pre></div>
+
+<h4 id="toc_22">This process created four files with extensions *<em>.Tajima.D</em>, which contain Tajima&#39;s <em>D</em> metrics across 100-Kb windows per population.  These files, however, need to be sorted after creating a new header and removing the missing data (&quot;nan&quot;):</h4>
+
+<div><pre><code class="language-bash">echo -e &quot;CHROM\tBIN_START\tN_SNPS\tTajimaD&quot; &gt; header.Tajima.D
+grep -v &quot;CHROM\|nan&quot; OUT.Tajima.D | sort -g -k 4,4 | cat header.Tajima.D - &gt; OUT.Tajima.D.sorted.txt
+grep -v &quot;CHROM\|nan&quot; P1.Tajima.D | sort -g -k 4,4 | cat header.Tajima.D - &gt; P1.Tajima.D.sorted.txt
+grep -v &quot;CHROM\|nan&quot; P2.Tajima.D | sort -g -k 4,4 | cat header.Tajima.D - &gt; P2.Tajima.D.sorted.txt
+grep -v &quot;CHROM\|nan&quot; P3.Tajima.D | sort -g -k 4,4 | cat header.Tajima.D - &gt; P3.Tajima.D.sorted.txt </code></pre></div>
+
+<h4 id="toc_23">Next, we will obtain &quot;mean <em>D</em> statistics&quot; across 100-Kb windows per population:</h4>
+
+<div><pre><code class="language-bash">grep -v &quot;CHROM&quot; OUT.Tajima.D.sorted.txt | awk &#39;{ total += $4 } END { print total/NR }&#39; &gt; OUT.Tajima.D.mean.txt
+grep -v &quot;CHROM&quot; P1.Tajima.D.sorted.txt | awk &#39;{ total += $4 } END { print total/NR }&#39; &gt; P1.Tajima.D.mean.txt
+grep -v &quot;CHROM&quot; P2.Tajima.D.sorted.txt | awk &#39;{ total += $4 } END { print total/NR }&#39; &gt; P2.Tajima.D.mean.txt
+grep -v &quot;CHROM&quot; P3.Tajima.D.sorted.txt | awk &#39;{ total += $4 } END { print total/NR }&#39; &gt; P3.Tajima.D.mean.txt</code></pre></div>
+
+<h4 id="toc_24">We can now visualize &quot;mean <em>D</em> statistics&quot; per population by typing:</h4>
+
+<div><pre><code class="language-bash">head *.Tajima.D.mean.txt</code></pre></div>
+
+<h4 id="toc_25">Which populations would you argue are expanding/contracting?  Which populations have remained constant in size?</h4>
+
+<h4 id="toc_26">For simplicity, we will only charaterize the &quot;top&quot; and &quot;bottom&quot; three <em>D</em>-statistic outliers per population by typing:</h4>
+
+<div><pre><code class="language-bash">head -4 OUT.Tajima.D.sorted.txt &gt; OUT.Tajima.D.outliers.txt
+tail -3 OUT.Tajima.D.sorted.txt &gt;&gt; OUT.Tajima.D.outliers.txt
+head -4 P1.Tajima.D.sorted.txt &gt; P1.Tajima.D.outliers.txt
+tail -3 P1.Tajima.D.sorted.txt &gt;&gt; P1.Tajima.D.outliers.txt
+head -4 P2.Tajima.D.sorted.txt &gt; P2.Tajima.D.outliers.txt
+tail -3 P2.Tajima.D.sorted.txt &gt;&gt; P2.Tajima.D.outliers.txt
+head -4 P3.Tajima.D.sorted.txt &gt; P3.Tajima.D.outliers.txt
+tail -3 P3.Tajima.D.sorted.txt &gt;&gt; P3.Tajima.D.outliers.txt</code></pre></div>
+
+<h4 id="toc_27">Results from the previous step can be visualized by typing:</h4>
+
+<div><pre><code class="language-bash">head *.Tajima.D.outliers.txt</code></pre></div>
+
+<h4 id="toc_28">What do these results mean?  What similarities/dissimilarities across populations can you find?</h4>
+
+<h2 id="toc_29">03. Runs of Homozygosity (ROHs)</h2>
+
+<h4 id="toc_30">Move to the working directory:</h4>
+
+<div><pre><code class="language-bash">cd ~/Desktop/GDW_Data/Alex/popgen/03.ROHs</code></pre></div>
+
+<h4 id="toc_31">Run the following command line in <em>PLINK</em> to define ROHs from each sample from the <em>all.vcf</em> file:</h4>
+
+<div><pre><code class="language-bash">plink2 --vcf all.vcf --make-bed --out out_name --no-sex --no-parents --no-fid --no-pheno --allow-extra-chr --double-id
+plink2 -bfile out_name --homozyg --homozyg-window-snp 20 --homozyg-snp 20 --homozyg-window-missing 1 --homozyg-window-threshold 0.01 --allow-extra-chr</code></pre></div>
+
+<h4 id="toc_32">Based on the parameters used, we are defining ROHs as genomic tracts with a minimum length of 20 consecutive homozygous SNPs.  Fore more information on these parameters you can go to <a href="">https://www.cog-genomics.org/plink/1.9/ibd</a></h4>
+
+<h4 id="toc_33">You can give the resulting file a quick scan by typing:</h4>
+
+<div><pre><code class="language-bash">head plink.hom
+tail plink.hom</code></pre></div>
+
+<h4 id="toc_34">What does this file mean?</h4>
+
+<h4 id="toc_35">We will now convert the <em>plink.hom</em> file to a tab-delimited one (<em>plink.hom.tab</em>):</h4>
+
+<div><pre><code class="language-bash">sed -e &#39;s/\s\{1,\}/\t/g&#39; plink.hom &gt; plink.hom.tab</code></pre></div>
+
+<h4 id="toc_36">From this newly created file (<em>plink.hom.tab</em>), we will now capture ROH tracts from each sample by typing:</h4>
+
+<div><pre><code class="language-bash">grep &quot;OUT_1&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; OUT_1.FROH.txt
+grep &quot;OUT_2&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; OUT_2.FROH.txt
+grep &quot;OUT_3&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; OUT_3.FROH.txt
+grep &quot;OUT_4&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; OUT_4.FROH.txt
+grep &quot;OUT_5&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; OUT_5.FROH.txt
+grep &quot;P1_1&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P1_1.FROH.txt
+grep &quot;P1_2&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P1_2.FROH.txt
+grep &quot;P1_3&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P1_3.FROH.txt
+grep &quot;P1_4&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P1_4.FROH.txt
+grep &quot;P1_5&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P1_5.FROH.txt
+grep &quot;P2_1&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P2_1.FROH.txt
+grep &quot;P2_2&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P2_2.FROH.txt
+grep &quot;P2_3&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P2_3.FROH.txt
+grep &quot;P2_4&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P2_4.FROH.txt
+grep &quot;P2_5&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P2_5.FROH.txt
+grep &quot;P3_1&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P3_1.FROH.txt
+grep &quot;P3_2&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P3_2.FROH.txt
+grep &quot;P3_3&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P3_3.FROH.txt
+grep &quot;P3_4&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P3_4.FROH.txt
+grep &quot;P3_5&quot; plink.hom.tab | awk &#39;{ total += $10 } END { print total/169609.841 }&#39; &gt; P3_5.FROH.txt</code></pre></div>
+
+<h4 id="toc_37">Phew!!!  Command line got a bit bulky there, but we created 20 different files (all with extensions *<em>.FROH.txt</em>).  Give these files a quick inspection by typing:</h4>
+
+<div><pre><code class="language-bash">head *.FROH.txt</code></pre></div>
+
+<h4 id="toc_38">What information is contained in these files?</h4>
+
+<h4 id="toc_39">We will now obtainin &quot;mean FROH metrics&quot; per population by typing:</h4>
+
+<div><pre><code class="language-bash">cat OUT_*.FROH.txt | awk &#39;{ total += $1 } END { print total/NR }&#39; &gt; OUT.FROH.mean.txt
+cat P1_*.FROH.txt | awk &#39;{ total += $1 } END { print total/NR }&#39; &gt; P1.FROH.mean.txt
+cat P2_*.FROH.txt | awk &#39;{ total += $1 } END { print total/NR }&#39; &gt; P2.FROH.mean.txt
+cat P3_*.FROH.txt | awk &#39;{ total += $1 } END { print total/NR }&#39; &gt; P3.FROH.mean.txt</code></pre></div>
+
+<h4 id="toc_40">Final results can be visualized by typing:</h4>
+
+<div><pre><code class="language-bash">head *.FROH.mean.txt</code></pre></div>
+
+<h4 id="toc_41">Which populations would you argue are highly inbred?</h4>
+
+<h4 id="toc_42">How are these results (i.e., observed heterozygosity, Tajima&#39;s <em>D</em>, FROH) relevant to WILDLIFE DISEASE?</h4>
+
+<h1 id="toc_43">Part 2</h1>
+
+<h2 id="toc_44">04. Principal Component Analysis (PCA)</h2>
+
+<h4 id="toc_45">Move to the working directory:</h4>
+
+<div><pre><code class="language-bash">cd ~/Desktop/GDW_Data/Alex/popgen/04.PCA</code></pre></div>
+
+<h4 id="toc_46">Use <em>PLINK</em> and the <em>all.unlinked.vcf</em> file to produce the data (eigenvectors and eigenvalues) to build a PCA plot:</h4>
+
+<div><pre><code class="language-bash">plink2 --vcf all.unlinked.vcf --allow-extra-chr 0 --double-id --pca var-wts --out all.unlinked</code></pre></div>
+
+<h4 id="toc_47">Give the resulting files a quick scan by typing:</h4>
+
+<div><pre><code class="language-bash">cat all.unlinked.eigenval
+cat all.unlinked.eigenvec</code></pre></div>
+
+<h4 id="toc_48">What do these files mean?</h4>
+
+<h4 id="toc_49">Next, we will obtain the eigenvalue data from the two main components by typing:</h4>
+
+<div><pre><code class="language-bash">awk &#39;NR &gt; max { max=NR } { tot+=$1; v[NR]=$1; d[NR]=$2 } END { for (i=1; i&lt;=max; i++) { print v[i]*100/tot } }&#39; all.unlinked.eigenval | head -2 &gt; all.unlinked.eigenvalue.prcomp
+cat all.unlinked.eigenvalue.prcomp</code></pre></div>
+
+<h4 id="toc_50">We will now retrieve the eigenvector data from the two main components by typing:</h4>
+
+<div><pre><code class="language-bash">sed &#39;s/ /\t/g&#39; all.unlinked.eigenvec | cut -f 2-4 &gt; all.unlinked.eigenvector.prcomp
+cat all.unlinked.eigenvector.prcomp</code></pre></div>
+
+<h4 id="toc_51">Within the &quot;04.PCA&quot; directory, open the Excel file called <em>PCA.xlsx</em> and plot results using the &quot;all.unlinked.eigenvector.prcomp&quot; sheet as a template.  Accomodate the eigenvector data from the <em>all.unlinked.eigenvector.prcomp</em> file accordingly.  Also, don&#39;t forget to add the eigenvalue data from the <em>all.unlinked.eigenvalue.prcomp</em> file to each axis.  Side note: the eigenvalue data needs to be converted into a percentage by multiplying each entry by 100.</h4>
+
+<h4 id="toc_52">Is there any genomic structure across samples?  And if so, at what scale (e.g., species, population)?</h4>
+
+<h4 id="toc_53">In order to gain more resolution into the distribution of genetic variation between populations from the species of interest, we will repeat the previous procedure with the <em>pops.unlinked.vcf</em> file:</h4>
+
+<div><pre><code class="language-bash">plink2 --vcf pops.unlinked.vcf --allow-extra-chr 0 --double-id --pca var-wts --out pops.unlinked
+awk &#39;NR &gt; max { max=NR } { tot+=$1; v[NR]=$1; d[NR]=$2 } END { for (i=1; i&lt;=max; i++) { print v[i]*100/tot } }&#39; pops.unlinked.eigenval | head -2 &gt; pops.unlinked.eigenvalue.prcomp
+cat pops.unlinked.eigenvalue.prcomp
+sed &#39;s/ /\t/g&#39; pops.unlinked.eigenvec | cut -f 2-4 &gt; pops.unlinked.eigenvector.prcomp
+cat pops.unlinked.eigenvector.prcomp</code></pre></div>
+
+<h4 id="toc_54">As done previously to the <em>PCA.xlsx</em> file, plot results using the &quot;pops.unlinked.eigenvector.prcomp&quot; sheet as a template. Accomodate the eigenvector data from the <em>pops.unlinked.eigenvector.prcomp</em> file accordingly. Also, don&#39;t forget to add the eigenvalue data from the <em>pops.unlinked.eigenvalue.prcomp</em> file to each axis. Side note: the eigenvalue data needs to be converted into a percentage by multiplying each entry by 100.</h4>
+
+<h4 id="toc_55">What type of genomic structure resolution are we now obtaining from this data?</h4>
+
+<h2 id="toc_56">05. Ancestry and Admixture (NGSadmix)</h2>
+
+<h4 id="toc_57">Move to the working directory:</h4>
+
+<div><pre><code class="language-bash">cd ~/Desktop/GDW_Data/Alex/popgen/05.NGSadmix</code></pre></div>
+
+<h4 id="toc_58">Run NGSadmix assuming two, three, and four genomic groups (<em>K</em> = 2, 3, 4) and visualize results by applying the following command line:</h4>
+
+<div><pre><code class="language-bash">~/Desktop/GDWApps/NgsAdmix/NGSadmix -likes pops.unlinked.beagle.gz -seed 12345 -K 2 -P 4 -o K2
+paste labels.txt K2.qopt | sed &#39;s/ /\t/g&#39; &gt; K2.qopt.txt
+cat K2.qopt.txt</code></pre></div>
+
+<div><pre><code class="language-bash">~/Desktop/GDWApps/NgsAdmix/NGSadmix -likes pops.unlinked.beagle.gz -seed 12345 -K 3 -P 4 -o K3
+paste labels.txt K3.qopt | sed &#39;s/ /\t/g&#39; &gt; K3.qopt.txt
+cat K3.qopt.txt</code></pre></div>
+
+<div><pre><code class="language-bash">~/Desktop/GDWApps/NgsAdmix/NGSadmix -likes pops.unlinked.beagle.gz -seed 12345 -K 4 -P 4 -o K4
+paste labels.txt K4.qopt | sed &#39;s/ /\t/g&#39; &gt; K4.qopt.txt
+cat K4.qopt.txt</code></pre></div>
+
+<h4 id="toc_59">Open the Excel file called <em>NGSadmix.xlsx</em> and plot results in their corresponding Excel sheet (i.e., K2.qopt.txt, K3.qopt.txt, K4.qopt.txt).</h4>
+
+<h4 id="toc_60">How many genomic groups (<em>K</em>) are best explained by the data?  Two, three, four?</h4>
+
+<h4 id="toc_61">All right, all right ... the last question was a tricky one.  In reality, we need to create multiple replicates from each assumed <em>K</em> in order to find the optimal number of genomic groups (<em>K</em>) defined by the data.</h4>
+
+<h4 id="toc_62">In this regard, the <em>all.K1</em><em>_</em><em>5.replicates.log</em> file contains the log likelihood values from five replicates assuming <em>K</em> = 1-5.</h4>
+
+<h4 id="toc_63">Open the <em>all.K1</em><em>_</em><em>5.replicates.log</em> file and paste the data on the Excel sheet called &quot;all.K1<em>_</em>5.replicates.log&quot;.</h4>
+
+<h4 id="toc_64">According to the Evanno et al. method (<a href="https://onlinelibrary.wiley.com/doi/full/10.1111/j.1365-294X.2005.02553.x">https://onlinelibrary.wiley.com/doi/full/10.1111/j.1365-294X.2005.02553.x</a>), the <em>K</em>-value (<em>x</em>-axis) corresponding to the greatest Delta <em>K</em> value (<em>y</em>-axis) best explains the number of genomic clusters from the data.</h4>
+
+<h4 id="toc_65">What&#39;s the optimal <em>K</em> according to this method?  Are populations genetically isolated?</h4>
+
+<h2 id="toc_66">06. FST-outlier Test</h2>
+
+<h4 id="toc_67">Move to the working directory:</h4>
+
+<div><pre><code class="language-bash">cd ~/Desktop/GDW_Data/Alex/popgen/06.FST_outlier</code></pre></div>
+
+<h4 id="toc_68">Using VCFtools and the <em>pops.unlinked.vcf</em> file, obtain FST statistics across loci and populations:</h4>
+
+<div><pre><code class="language-bash">vcftools --vcf pops.unlinked.vcf --weir-fst-pop P1.txt --weir-fst-pop P2.txt --weir-fst-pop P3.txt</code></pre></div>
+
+<h4 id="toc_69">We will now create a new header, sort the resulting file (out.weir.fst), and output into a file called <em>pops.FST.sorted</em> by typing:</h4>
+
+<div><pre><code class="language-bash">echo -e &quot;CHROM\tPOS\tWEIR_AND_COCKERHAM_FST&quot; &gt; header.FST
+grep -v &quot;CHROM\|nan&quot; out.weir.fst | sort -r -g -k 3,3 | cat header.FST - &gt; pops.FST.sorted</code></pre></div>
+
+<h4 id="toc_70">From the <em>pops.FST.sorted</em> file, now apply the following command line to output FST values belonging to the top 5th percentile:</h4>
+
+<div><pre><code class="language-bash">head -54 pops.FST.sorted &gt; pops.FST.sorted.outliers
+cat pops.FST.sorted.outliers</code></pre></div>
+
+<h4 id="toc_71">What does this data mean and how would you improve the analysis to detect genes under selection?</h4>
+
+<h4 id="toc_72">How are patterns of genomic structure and selection related to WILDLIFE DISEASE?</h4>
+
+<h1 id="toc_73">Part 3</h1>
+
+<h2 id="toc_74">07. Mutation Load</h2>
+
+<h4 id="toc_75">Go to the SIFT site (<a href="">https://sift.bii.a-star.edu.sg/</a>) and click on the &quot;SIFT sequence&quot; link.</h4>
+
+<h4 id="toc_76">Next, copy/paste the following AMINO ACID sequence in the &quot;Paste in your protein query sequence&quot; entry:</h4>
+
+<div><pre><code class="language-none">&gt;unknown
+MPLGEYTLVRVVGKGSYGEVSLVRHRHDGKQYVIKRLNLKHASSRERKAAEQEAQLLSQLKHPNIVTYRESWEGDDGLLYIVMGFCEGGDLYHKLKEQKGQLLPESQVVEWLVQIAMALQYLHEKHILHRDLKTQNVFLTRSNIIKVGDLGIARVLENQHDMASTLIGTPYYMSPELFSNKPYSYKSDVWALGCCAYEMTTLKHAFNAKDMNSLVYRIIEGKLPPMPKDYSIQLKELIRIMLSKKPEERPSVRSILRQPYIKQQISLFLEATKAKTSKNHKKISEPNPRGSSEKAELKKENTVPQKLPDELSKNSHLNEDKCLINNKTFEVSSSKKLAPEPEKNSKNGLNSLDVSLATMSKVDILIVPLEKRNSATKQSAEHKESRNVHIPNEAEPERAKNSSELKEESLLKMTTPCSKTGSVEAKETDNGSVQEPSLSQQRRHKKESEILNKIAAFGHRQLPAYPDVNVKTKEVNTDHQRAANVLKKSKSFEVEHSKDRPLSARERRRLKQSQEDMLSSDPSVRRMSYNASTETKLPREDRCIQIAQFTSEPTTDKKKSLTGCCTEDDLSSSTSSTEKSDGDYKERKSNEMNDLLQLMTQTLKMDNIENYSQFAMSTPDSQFRLNRKYRDTLILHGKTAEEPDEFQFQEFPSDDKSGPQNIRRLVEILRADVVQGIGVKLLEKVYDAMEEEDEQKRELCLRKLMGEKYTSYSMKARHLKFLEDNVKL</code></pre></div>
+
+<h4 id="toc_77">Once finished, copy the following information on the &quot;Enter the substitutions of interest&quot; entry:</h4>
+
+<div><pre><code class="language-none">V9M
+T140M</code></pre></div>
+
+<h4 id="toc_78">Click on the &quot;Submit&quot; button and enjoy your coffee!</h4>
+
+<h4 id="toc_79">Ok, the SIFT online platform has now had a chance to produce results.  Click on the &quot;Your results will be at this link&quot; link.  Then click on the &quot;Predictions of substitutions entered&quot; link to visualize your results.</h4>
+
+<h4 id="toc_80">What can we say about these AMINO ACID mutations?</h4>
+
+<h4 id="toc_81">It just so happens that the V9M amino acid mutation corresponds to a G -&gt; A DNA mutation at locus &quot;jcf7180000039029<em>_</em>1840688,&quot; whereas the T140M amino acid mutation corresponds to a C -&gt; T DNA mutation at locus &quot;jcf7180000039029<em>_</em>1838320&quot; from our original <em>all.vcf</em> file.</h4>
+
+<h4 id="toc_82">To this extent, apply the following command line to capture the loci of interest:</h4>
+
+<div><pre><code class="language-bash">grep &quot;CHROM\|jcf7180000039029_1838320\|jcf7180000039029_1840688&quot; all.vcf &gt; loci.txt</code></pre></div>
+
+<h4 id="toc_83">Open the <em>loci.txt</em> file in BBEdit.  What can we say about these loci?  With this one example in hand, what do you think the genome-wide mutation load pattern may look like across populations?</h4>
+
+<h4 id="toc_84">Finally, perform a BLASTp search (<a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=Proteins">https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=Proteins</a>) of the protein in question to find its description.</h4>
+
+<h4 id="toc_85">Look closely at the description of the protein and search for a gene code (usually represented by a few characters).</h4>
+
+<h4 id="toc_86">Finally, go to the GeneCards site (<a href="">https://www.genecards.org/</a>), introduce this gene code in the &quot;Explore a gene&quot; search bar, and click on the &quot;search&quot; button.</h4>
+
+<h4 id="toc_87">What can we say about this gene and how is it related to WILDLIFE DISEASE?</h4>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+!function(e){var t={variable:[{pattern:/\$?\(\([\w\W]+?\)\)/,inside:{variable:[{pattern:/(^\$\(\([\w\W]+)\)\)/,lookbehind:!0},/^\$\(\(/],number:/\b-?(?:0x[\dA-Fa-f]+|\d*\.?\d+(?:[Ee]-?\d+)?)\b/,operator:/--?|-=|\+\+?|\+=|!=?|~|\*\*?|\*=|\/=?|%=?|<<=?|>>=?|<=?|>=?|==?|&&?|&=|\^=?|\|\|?|\|=|\?|:/,punctuation:/\(\(?|\)\)?|,|;/}},{pattern:/\$\([^)]+\)|`[^`]+`/,inside:{variable:/^\$\(|^`|\)$|`$/}},/\$(?:[a-z0-9_#\?\*!@]+|\{[^}]+\})/i]};e.languages.bash={shebang:{pattern:/^#!\s*\/bin\/bash|^#!\s*\/bin\/sh/,alias:"important"},comment:{pattern:/(^|[^"{\\])#.*/,lookbehind:!0},string:[{pattern:/((?:^|[^<])<<\s*)(?:"|')?(\w+?)(?:"|')?\s*\r?\n(?:[\s\S])*?\r?\n\2/g,lookbehind:!0,inside:t},{pattern:/(["'])(?:\\\\|\\?[^\\])*?\1/g,inside:t}],variable:t.variable,"function":{pattern:/(^|\s|;|\||&)(?:alias|apropos|apt-get|aptitude|aspell|awk|basename|bash|bc|bg|builtin|bzip2|cal|cat|cd|cfdisk|chgrp|chmod|chown|chroot|chkconfig|cksum|clear|cmp|comm|command|cp|cron|crontab|csplit|cut|date|dc|dd|ddrescue|df|diff|diff3|dig|dir|dircolors|dirname|dirs|dmesg|du|egrep|eject|enable|env|ethtool|eval|exec|expand|expect|export|expr|fdformat|fdisk|fg|fgrep|file|find|fmt|fold|format|free|fsck|ftp|fuser|gawk|getopts|git|grep|groupadd|groupdel|groupmod|groups|gzip|hash|head|help|hg|history|hostname|htop|iconv|id|ifconfig|ifdown|ifup|import|install|jobs|join|kill|killall|less|link|ln|locate|logname|logout|look|lpc|lpr|lprint|lprintd|lprintq|lprm|ls|lsof|make|man|mkdir|mkfifo|mkisofs|mknod|more|most|mount|mtools|mtr|mv|mmv|nano|netstat|nice|nl|nohup|notify-send|nslookup|open|op|passwd|paste|pathchk|ping|pkill|popd|pr|printcap|printenv|printf|ps|pushd|pv|pwd|quota|quotacheck|quotactl|ram|rar|rcp|read|readarray|readonly|reboot|rename|renice|remsync|rev|rm|rmdir|rsync|screen|scp|sdiff|sed|seq|service|sftp|shift|shopt|shutdown|sleep|slocate|sort|source|split|ssh|stat|strace|su|sudo|sum|suspend|sync|tail|tar|tee|test|time|timeout|times|touch|top|traceroute|trap|tr|tsort|tty|type|ulimit|umask|umount|unalias|uname|unexpand|uniq|units|unrar|unshar|uptime|useradd|userdel|usermod|users|uuencode|uudecode|v|vdir|vi|vmstat|wait|watch|wc|wget|whereis|which|who|whoami|write|xargs|xdg-open|yes|zip)(?=$|\s|;|\||&)/,lookbehind:!0},keyword:{pattern:/(^|\s|;|\||&)(?:let|:|\.|if|then|else|elif|fi|for|break|continue|while|in|case|function|select|do|done|until|echo|exit|return|set|declare)(?=$|\s|;|\||&)/,lookbehind:!0},"boolean":{pattern:/(^|\s|;|\||&)(?:true|false)(?=$|\s|;|\||&)/,lookbehind:!0},operator:/&&?|\|\|?|==?|!=?|<<<?|>>|<=?|>=?|=~/,punctuation:/\$?\(\(?|\)\)?|\.\.|[{}[\];]/};var a=t.variable[1].inside;a["function"]=e.languages.bash["function"],a.keyword=e.languages.bash.keyword,a.boolean=e.languages.bash.boolean,a.operator=e.languages.bash.operator,a.punctuation=e.languages.bash.punctuation}(Prism);
+</script>
+
+
+</body>
+
+</html>
