@@ -145,7 +145,7 @@ Time | Activity
 **07:00–08:00** | Breakfast
 **08:15-08:25** | Step 4: Applying genomic tools across populations, Jill Pecon-Slattery
 **08:25-09:30** | Population Genomics 101: Population Size, Genetic Drift, and Inbreeding, Alex Ochoa
-**09:30-10:00** | CSU Flash Talk, Elizabeth Hemming-Schroeder
+**09:30-10:00** | [CSU Flash Talk](./lectures/GWD-FlashTalk_HemmingSchroeder.pdf), Elizabeth Hemming-Schroeder
 **10:00-10:20** | Coffee Break and Meet Invited Speaker
 **10:20-11:00** | Population Genomics 101: Genetic Structure, Selection, and Mutation Load, Alex Ochoa
 **11:00-12:15** | Lectures and Labs Population Genomics (Part 1), Alex Ochoa
